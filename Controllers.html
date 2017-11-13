@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Session IV: Attaching User Controls &#8212; Getting Started With VR 0.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Session V: Enhancing With Textures, Shaders and Sound" href="TexturesShadersAndSound.html" />
+    <link rel="prev" title="Session III: Collisions and Physics" href="CollisionsAndPhysics.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Getting Started With VR</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Contents <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Prerequisites.html">Before You Arrive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SetupAndBasics.html">Session I: Setting Up and Using Unity 3D for VR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Session II: Controlling Objects With Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CollisionsAndPhysics.html">Session III: Collisions and Physics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Session IV: Attaching User Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TexturesShadersAndSound.html">Session V: Enhancing With Textures, Shaders and Sound</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AdvancedNotes.html">Some Advanced Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Resources.html">Additional Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Attributions.html">Attributions</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Current Section <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Session IV: Attaching User Controls</a><ul>
+<li><a class="reference internal" href="#overview-of-controller-sdks">Overview of Controller SDKs</a></li>
+<li><a class="reference internal" href="#vrtk-quickstart-with-version-3-2-1">VRTK Quickstart (with version 3.2.1)</a></li>
+<li><a class="reference internal" href="#test-the-controls-in-simulator-mode">Test the Controls in Simulator Mode</a></li>
+<li><a class="reference internal" href="#physical-controllers">Physical Controllers</a><ul>
+<li><a class="reference internal" href="#vive-notes">Vive Notes</a></li>
+<li><a class="reference internal" href="#oculus-notes">Oculus Notes</a></li>
+<li><a class="reference internal" href="#googlevr-notes">GoogleVR Notes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configuring-controllers-with-vrtk">Configuring Controllers With VRTK</a><ul>
+<li><a class="reference internal" href="#setup-the-controller-aliases">Setup the Controller Aliases</a></li>
+<li><a class="reference internal" href="#make-objects-interactable">Make Objects Interactable</a></li>
+<li><a class="reference internal" href="#customizing-grab-actions">Customizing Grab Actions</a></li>
+<li><a class="reference internal" href="#adding-secondary-grab-actions">Adding Secondary Grab Actions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="CollisionsAndPhysics.html" title="Previous Chapter: Session III: Collisions and Physics"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Session III: ...</span>
+    </a>
+  </li>
+  <li>
+    <a href="TexturesShadersAndSound.html" title="Next Chapter: Session V: Enhancing With Textures, Shaders and Sound"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Session V: En... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary">
+  <li>
+    <a href="CollisionsAndPhysics.html" title="Previous Chapter: Session III: Collisions and Physics"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Session III: ...</span>
+    </a>
+  </li>
+  <li>
+    <a href="TexturesShadersAndSound.html" title="Next Chapter: Session V: Enhancing With Textures, Shaders and Sound"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Session V: En... &raquo;</span>
+    </a>
+  </li>
+<form action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <div class="section" id="session-iv-attaching-user-controls">
+<h1>Session IV: Attaching User Controls<a class="headerlink" href="#session-iv-attaching-user-controls" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>overview of controller sdks</li>
+<li>grabbing a simple object</li>
+<li>grabbing a sword</li>
+<li>setting up two-handed grab</li>
+</ul>
+<div class="section" id="overview-of-controller-sdks">
+<h2>Overview of Controller SDKs<a class="headerlink" href="#overview-of-controller-sdks" title="Permalink to this headline">¶</a></h2>
+<p>There are three major options for VR controls:</p>
+<ul class="simple">
+<li>Vive Controllers</li>
+<li>Oculus Touch Controllers</li>
+<li>Gaze + Click</li>
+</ul>
+<p>All of these options can be managed through VRTK. If you don't have controllers, the simplest way to follow along is by using the SDK switcher setup.</p>
+<p>VRTK has some major changes between versions <code class="docutils literal"><span class="pre">1/2</span></code> and <code class="docutils literal"><span class="pre">3</span></code> so if you are searching for help or tutorials, make sure that its for a recent version.</p>
+<p>Controllers provide input in the form of position and rotation, joystick/trackpad/button presses, and an identifier (typically an integer) to tell various controllers apart.</p>
+</div>
+<div class="section" id="vrtk-quickstart-with-version-3-2-1">
+<h2>VRTK Quickstart (with version 3.2.1)<a class="headerlink" href="#vrtk-quickstart-with-version-3-2-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Install the <code class="docutils literal"><span class="pre">.unitypackage</span></code> files (or Asset store imports) for the SDKs you want to support (probably SteamVR, Oculus, Daydream, and/or GearVR) - it is important that you <em>make this choice in advance</em>, since once you start importing VRTK assets, they will begin configuring things - if you add additional assets afterward, you may need to delete VRTK manager assets and re-add them to the Assets directory and scene</li>
+<li>Find the SDKSetups prefab (<code class="docutils literal"><span class="pre">VRTK/Examples/ExampleResources/Prefabs/SDKSetups.prefab</span></code>) and add it to your scene</li>
+<li>Find the SDKSetupSwitcher prefab (<code class="docutils literal"><span class="pre">VRTK/Examples/ExampleResources/Prefabs/SDKSetupSwitcher.prefab</span></code>) and add it to your scene</li>
+<li>Create an empty object and name it <code class="docutils literal"><span class="pre">[VRTK_Manager]</span></code></li>
+<li>Find the script component VRTK_SDKManager (<code class="docutils literal"><span class="pre">VRTK/Scripts/Utilities/SDK/VRTK_SDKManager.cs</span></code> ) and add it to the manager object you just created</li>
+<li>In the VRTK_SDKManager script menu scroll to the Setups section and click 'Autopopulate'</li>
+<li>If you have another camera in the scene, click it in the Hierarchy and uncheck the <code class="docutils literal"><span class="pre">Audio</span> <span class="pre">Listener</span></code> in the Inspector to disable it</li>
+</ul>
+<p>If you still experience issues, check that your SDK is enabled in the PlayerSettings <code class="docutils literal"><span class="pre">Edit</span> <span class="pre">&gt;</span> <span class="pre">Project</span> <span class="pre">Settings</span> <span class="pre">&gt;</span> <span class="pre">Player</span></code> (you can also check this by opening your project directory <code class="docutils literal"><span class="pre">./ProjectSettings/PlayerSettings.asset</span></code> in your favorite text editor, provided you have previously set your editor to store everything in 'Force to Text' mode)</p>
+<p>You should see several grayed out options and at least one in black: <code class="docutils literal"><span class="pre">Simulator</span> <span class="pre">(VRKT_SDKSetup)</span></code> - this is great because it means you can test things out from a desktop without a Head Mounted Display attached. You'll also find that if you import the SDKs from various vendors, those will become available as options. Whichever is listed highest will get loaded first if it is available - you can drag them around to reorder or use the SDKSetupSwitcher to change on the fly in the editor.</p>
+</div>
+<div class="section" id="test-the-controls-in-simulator-mode">
+<h2>Test the Controls in Simulator Mode<a class="headerlink" href="#test-the-controls-in-simulator-mode" title="Permalink to this headline">¶</a></h2>
+<p>If you've ever used the text editor vim, Simulator Mode's basic approach will be familiar. There are a variety of input modes that determine what actions the keyboard and mouse will perform in the scene. You can navigate with WASD keys. Initially, your mouse controls the Head Mounted Display. To operate the controllers, hit <code class="docutils literal"><span class="pre">LeftAlt</span></code> to enter controller mode. Now you're controlling the position of the controller and can simulate button presses, with T, mouse-1, mouse-2, etc. Holding down shift will let you rotate the controller. If you don't see the full list of control options in the upper left of the Game View, hit <code class="docutils literal"><span class="pre">F1</span></code> .</p>
+<p>If you have trouble getting your controller to move exactly where you need it to (to test a touch control, for instance), you can cheat by selecting <code class="docutils literal"><span class="pre">SDKSetups&gt;Simulator&gt;VRSimulatorCameraRig&gt;RightHand</span></code> in the Hierarchy view and moving the RightHand object to the right place in Scene View. Note: you need to make sure to use the RightHand or LeftHand parent objects, not the Hand or ControllerAlias children.</p>
+<p>Developing with keyboard shortcuts can seem clunky, but comes in handy if you need to work away from your main rig or want to test something without picking up and putting down the controller multiple times. But the real power to immerse users in a scene comes from having a good set of options attached to high-quality controllers.</p>
+</div>
+<div class="section" id="physical-controllers">
+<h2>Physical Controllers<a class="headerlink" href="#physical-controllers" title="Permalink to this headline">¶</a></h2>
+<p>Controllers are described in terms of their 'degrees of freedom', sometimes abbreviated 'DOF'. So if you hear someone describe hardware as 3-DOF or 6-DOF, they're usually talking about how hardware is tracked in space. If you can move in x,y,z that's three degrees. If you can rotate side-to-side, up-down, and front-back that's another three degrees.</p>
+<p>Here is an example from <a class="reference external" href="http://www.philcheetham.com">Phil Cheetham's site on biomechanics</a>:</p>
+<p><img alt="_images/6-dof-phil-cheetham.png" src="_images/6-dof-phil-cheetham.png" />6-dof</p>
+<div class="section" id="vive-notes">
+<h3>Vive Notes<a class="headerlink" href="#vive-notes" title="Permalink to this headline">¶</a></h3>
+<p><img alt="https://docs.unity3d.com/uploads/Main/OculusControllersViveControllers.png" src="https://docs.unity3d.com/uploads/Main/OculusControllersViveControllers.png" />Vive Controllers</p>
+<p><a class="reference external" href="https://docs.unity3d.com/Manual/OpenVRControllers.html">Unity Documentation: Vive controller details</a></p>
+</div>
+<div class="section" id="oculus-notes">
+<h3>Oculus Notes<a class="headerlink" href="#oculus-notes" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://skarredghost.com/2017/01/03/getting-started-with-oculus-touch-and-avatar-sdk-in-unity/">getting started blog post (2017-01-03)</a></p>
+<p><img alt="https://docs.unity3d.com/uploads/Main/OculusControllersTouchControllers.png" src="https://docs.unity3d.com/uploads/Main/OculusControllersTouchControllers.png" />Oculus Touch Controllers</p>
+<p><a class="reference external" href="https://docs.unity3d.com/Manual/OculusControllers.html">Unity Documentation: Oculus controller details</a></p>
+</div>
+<div class="section" id="googlevr-notes">
+<h3>GoogleVR Notes<a class="headerlink" href="#googlevr-notes" title="Permalink to this headline">¶</a></h3>
+<p>You can do Google VR development on most mid-to-high range Android an IOS phones, but the controller is only available on Daydream devices. Unlike the 6-dof you get with Vive or Oculus, the Daydream controller has only 3:</p>
+<ul class="simple">
+<li>move up-down,</li>
+<li>move left-right</li>
+<li>rotate along a single axis</li>
+</ul>
+<p><img alt="_images/DaydreamController.jpg" src="_images/DaydreamController.jpg" />Daydream Controller</p>
+<p><a class="reference external" href="https://developers.google.com/vr/unity/controller-basics">GVR in Unity Documentation</a></p>
+</div>
+</div>
+<div class="section" id="configuring-controllers-with-vrtk">
+<h2>Configuring Controllers With VRTK<a class="headerlink" href="#configuring-controllers-with-vrtk" title="Permalink to this headline">¶</a></h2>
+<p>VRTK provides a lot of options for some standard VR conventions like pointers, teleportation, UI interactions, and button configurations with well-written and documented scripts. We can't cover all of them here, but working through how grabbing works should give you a good start.</p>
+<div class="section" id="setup-the-controller-aliases">
+<h3>Setup the Controller Aliases<a class="headerlink" href="#setup-the-controller-aliases" title="Permalink to this headline">¶</a></h3>
+<p>Once you've got the <code class="docutils literal"><span class="pre">VRTK_Manager</span></code> setup (if you don't, go back to the VRTK quickstart), you'll need to create an alias for the controller scripts so that the manager can swap between hardware configurations seamlessly.</p>
+<ul class="simple">
+<li>Create an empty object and rename it <code class="docutils literal"><span class="pre">[VRTK_Scripts]</span></code></li>
+<li>Add an empty object and name it <code class="docutils literal"><span class="pre">LeftControllerAlias</span></code></li>
+<li>Add the following components: <code class="docutils literal"><span class="pre">VRTK_ControllerEvents</span></code>, <code class="docutils literal"><span class="pre">VRTK_InteractTouch</span></code>, and <code class="docutils literal"><span class="pre">VRTK_InteractGrab</span></code></li>
+<li>Duplicate the <code class="docutils literal"><span class="pre">LeftControllerAlias</span></code> (also as a child of <code class="docutils literal"><span class="pre">[VRTK_Scripts]</span></code>) and rename it <code class="docutils literal"><span class="pre">RightControllerAlias</span></code></li>
+<li>Click on the <code class="docutils literal"><span class="pre">[VRTK_Manager]</span></code> in the Hierarchy view and examine <code class="docutils literal"><span class="pre">VRTK_SDKManager</span></code> script in the Inspector and drag the alias objects to the correct slots for the Script Aliases</li>
+</ul>
+</div>
+<div class="section" id="make-objects-interactable">
+<h3>Make Objects Interactable<a class="headerlink" href="#make-objects-interactable" title="Permalink to this headline">¶</a></h3>
+<p>To make an object interactable, we need a Rigidbody and several supporting scripts.</p>
+<ul class="simple">
+<li>Create a new GameObject (like a Cube or a Cylinder)</li>
+<li>Add Component: Rigidbody</li>
+<li>Add Component: VRTK_InteractableObject</li>
+<li>Add Component: VRTK_InteractHaptics</li>
+<li>Add Component: VRTK_ChildOfControllerGrabAttach</li>
+</ul>
+<p>Try that now and test it in a headset or with the simulator. If you find that the objects stay stuck to your controller even when you let go, find the InteractableObject script on the object you want to grab and make sure that <code class="docutils literal"><span class="pre">Hold</span> <span class="pre">Button</span> <span class="pre">To</span> <span class="pre">Grab</span></code> is checked.</p>
+<p>To save yourself some effort in the future, there is menu that will add these components to an object under <code class="docutils literal"><span class="pre">Window</span> <span class="pre">&gt;</span> <span class="pre">VRTK</span> <span class="pre">&gt;</span> <span class="pre">Setup</span> <span class="pre">Interactable</span> <span class="pre">Object</span></code>. You can read the details about how this works in the script <code class="docutils literal"><span class="pre">VRTK_ObjectSetup.cs</span></code></p>
+<p>Setting up the grab for the sword works basically the same way, except we may want to add some additional nuances:</p>
+<ul class="simple">
+<li>Add a custom collider for the parent object where the handle belongs.</li>
+<li>Add a Capsule Collider component and adjust its position and size using the menu in the Inspector.</li>
+<li>If you don't want to pick up your sword off the floor every time, you may also want to find the Rigidbody and disable gravity for the sword.</li>
+<li>while you are at it, find the pillar prefab in <code class="docutils literal"><span class="pre">pre_assets</span></code> and add it to the center of your scene as a convenient place for your sliceable objects</li>
+</ul>
+</div>
+<div class="section" id="customizing-grab-actions">
+<h3>Customizing Grab Actions<a class="headerlink" href="#customizing-grab-actions" title="Permalink to this headline">¶</a></h3>
+<p>Once you've got the basic grab action working, you'll probably have some ideas for how you want the object to behave once you've grabbed it. You can think about customization in two parts: the controller and the object you are grabbing.</p>
+<p>For the controller, you can modify things like which buttons get mapped to which actions, how much precision to use, custom attach points, or custom event handlers.</p>
+<p>For the object you can modify things like the color the object turns to indicate that it has been grabbed, which controllers are allowed to grab it, and how the object will respond when grabbed. For objects being picked up 'Child of Controller' usually works well. If you try the basic interaction with most objects you'll probably see a strange effect where the object jumps into the center of the controller. One way to make that work better is using a 'Snap Handle' to designate a particular place on the object where grabbing should take place.</p>
+<p>For the sword, we could use that technique, but since we want this interaction to be pretty dynamic and we're not really worrying about performance cost, click the 'Precision Grab' checkbox to allow fine-grained control.</p>
+</div>
+<div class="section" id="adding-secondary-grab-actions">
+<h3>Adding Secondary Grab Actions<a class="headerlink" href="#adding-secondary-grab-actions" title="Permalink to this headline">¶</a></h3>
+<p>As an initial secondary action, we'll implement a function that makes a two-handed swing more powerful. To do so, we'll first detect when a user is grabbing the sword with two hands and then update the properties of the blade in the <code class="docutils literal"><span class="pre">BladeController</span></code> script to make it powerful enough to cut &quot;strong&quot; objects that we prevented the sword from slicing with a single-hand grip. At first powering up the sword won't be obvious to the user, but we'll fix that with some visual and audio effects in the final section.</p>
+<p>To make an object behave differently when grabbed with two controllers, there are several options provided by VRTK: <code class="docutils literal"><span class="pre">SwapController</span></code> (move the object from left to right hand), <code class="docutils literal"><span class="pre">AxisScale</span></code> (resize the object), and <code class="docutils literal"><span class="pre">ControlDirection</span></code> (rotate the object). For our powerup option we want a slightly different behavior so we'll extend the ControlDirection class to insert our own effects.</p>
+<p>Select the handle object in the Hierarchy view and Add Component. Type 'SwordPowerUp' and agree to create a new script. We'll extend the existing <code class="docutils literal"><span class="pre">ControlDirection</span></code> script (if you want to see the full details, open the <code class="docutils literal"><span class="pre">VRTK_ControlDirectionGrabAction.cs</span></code> file) and override a few of the functions we care about</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">namespace</span> <span class="n">VRTK</span><span class="o">.</span><span class="n">SecondaryControllerGrabActions</span> <span class="p">{</span>
+	<span class="n">using</span> <span class="n">UnityEngine</span><span class="p">;</span>
+	<span class="n">using</span> <span class="n">System</span><span class="o">.</span><span class="n">Collections</span><span class="p">;</span>
+
+	<span class="p">[</span><span class="n">AddComponentMenu</span><span class="p">(</span><span class="s2">&quot;VRTK/Scripts/Interactions/Secondary Controller Grab Actions/PowerUpSword&quot;</span><span class="p">)]</span>
+  <span class="p">[</span><span class="n">RequireComponent</span><span class="p">(</span><span class="n">BladeController</span><span class="p">)]</span>
+	<span class="n">public</span> <span class="k">class</span> <span class="nc">PowerUpSword</span> <span class="p">:</span> <span class="n">VRTK_ControlDirectionGrabAction</span> <span class="p">{</span>
+
+		<span class="n">public</span> <span class="n">override</span> <span class="n">void</span> <span class="n">Initialise</span><span class="p">(</span><span class="n">VRTK_InteractableObject</span> <span class="n">currentGrabbdObject</span><span class="p">,</span> <span class="n">VRTK_InteractGrab</span> <span class="n">currentPrimaryGrabbingObject</span><span class="p">,</span> <span class="n">VRTK_InteractGrab</span> <span class="n">currentSecondaryGrabbingObject</span><span class="p">,</span> <span class="n">Transform</span> <span class="n">primaryGrabPoint</span><span class="p">,</span> <span class="n">Transform</span> <span class="n">secondaryGrabPoint</span><span class="p">){</span>
+			<span class="n">base</span><span class="o">.</span><span class="n">Initialise</span><span class="p">(</span><span class="n">currentGrabbdObject</span><span class="p">,</span> <span class="n">currentPrimaryGrabbingObject</span><span class="p">,</span> <span class="n">currentSecondaryGrabbingObject</span><span class="p">,</span> <span class="n">primaryGrabPoint</span><span class="p">,</span> <span class="n">secondaryGrabPoint</span><span class="p">);</span>
+			<span class="n">isPoweredUp</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+			<span class="n">Debug</span><span class="o">.</span><span class="n">Log</span> <span class="p">(</span><span class="s2">&quot;Powerup!!!&quot;</span><span class="p">);</span>
+		<span class="p">}</span>
+
+		<span class="n">public</span> <span class="n">override</span> <span class="n">void</span> <span class="n">ResetAction</span><span class="p">(){</span>
+			<span class="n">Debug</span><span class="o">.</span><span class="n">Log</span> <span class="p">(</span><span class="s2">&quot;PowerUpSword&gt;ResetAction: Back to normal power&quot;</span><span class="p">);</span>
+			<span class="n">base</span><span class="o">.</span><span class="n">ResetAction</span><span class="p">();</span>
+		<span class="p">}</span>
+
+		<span class="n">public</span> <span class="n">override</span> <span class="n">void</span> <span class="n">OnDropAction</span><span class="p">(){</span>
+			<span class="n">base</span><span class="o">.</span><span class="n">OnDropAction</span><span class="p">();</span>
+			<span class="n">Debug</span><span class="o">.</span><span class="n">Log</span> <span class="p">(</span><span class="s2">&quot;PowerUpSword&gt;DropAction: Back to normal power&quot;</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In order to connect this to a controller action, you need to point the <code class="docutils literal"><span class="pre">InteractableObject</span></code> script on the Sword to its own custom Grab Action script, <code class="docutils literal"><span class="pre">PowerUpSword</span></code>. The easiest way to do this is in the Inspector by dragging the c# script icon for <code class="docutils literal"><span class="pre">PowerUpSword</span></code> to the <code class="docutils literal"><span class="pre">Secondary</span> <span class="pre">Grab</span> <span class="pre">Action</span> <span class="pre">Script</span></code> slot in the <code class="docutils literal"><span class="pre">InteractableObject</span></code> menu. If you get weird behaviors, check to make sure the handle is oriented along the z axis with the point of the sword towards negative z (opposite the blue arrow) since this is what VRTK's <code class="docutils literal"><span class="pre">DirectionGrabAction</span></code> expects.</p>
+<p>Once you've got the powerup working as a log message and a boolean variable, we'll set things up to modify the how the blade works in Collisions.</p>
+<p>Set up a reference to the <code class="docutils literal"><span class="pre">BladeController</span></code> script:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">private</span> <span class="n">BladeController</span> <span class="n">bladeController</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Lookup and assign the bladeController.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">bladeController</span> <span class="o">=</span> <span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">BladeController</span><span class="o">&gt;</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Then, open up <code class="docutils literal"><span class="pre">BladeController.cs</span></code> and add two public functions:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">void</span> <span class="n">EnablePowerUp</span><span class="p">(){</span>
+    <span class="n">Debug</span><span class="o">.</span><span class="n">Log</span><span class="p">(</span><span class="s2">&quot;BladeController&gt;EnablePowerUp&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">public</span> <span class="n">void</span> <span class="n">DisablePowerUp</span><span class="p">(){</span>
+    <span class="n">Debug</span><span class="o">.</span><span class="n">Log</span><span class="p">(</span><span class="s2">&quot;BladeController&gt;DisablePowerUp&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then, go back to the <code class="docutils literal"><span class="pre">PowerUpSword.cs</span></code> script and add calls to the public functions in the <code class="docutils literal"><span class="pre">BladeController</span></code> in the appropriate places:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">bladeController</span><span class="o">.</span><span class="n">EnablePowerUp</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">bladeController</span><span class="o">.</span><span class="n">DisablePowerUp</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>If you get the log messages coming from both <code class="docutils literal"><span class="pre">PowerUpSword</span></code> and <code class="docutils literal"><span class="pre">BladeController</span></code> congratulations! You've got just one more step to change the sword's behavior for two-handed swings:</p>
+<p>Go back to the <code class="docutils literal"><span class="pre">BladeController</span></code> and create a boolean variable to handle its state:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">isPoweredUp</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Set the state to true in <code class="docutils literal"><span class="pre">EnablePowerUp</span></code> and false in <code class="docutils literal"><span class="pre">DisablePowerUp</span></code>.</p>
+<p>Then in <code class="docutils literal"><span class="pre">OnCollisionEnter</span></code> add a check to see if the sword is, in fact, powered up. When the sword is powered up, let the sword slice objects that are tagged <code class="docutils literal"><span class="pre">Strong</span></code> as well as those that are tagged <code class="docutils literal"><span class="pre">Sliceable</span></code>. You can test this by slicing the pillar or any other object you've tagged <code class="docutils literal"><span class="pre">Strong</span></code>.</p>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Keelan Downton.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

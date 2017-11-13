@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Session III: Collisions and Physics &#8212; Getting Started With VR 0.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Session IV: Attaching User Controls" href="Controllers.html" />
+    <link rel="prev" title="Session II: Controlling Objects With Scripts" href="Scripting.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Getting Started With VR</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Contents <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Prerequisites.html">Before You Arrive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SetupAndBasics.html">Session I: Setting Up and Using Unity 3D for VR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Session II: Controlling Objects With Scripts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Session III: Collisions and Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Controllers.html">Session IV: Attaching User Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TexturesShadersAndSound.html">Session V: Enhancing With Textures, Shaders and Sound</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AdvancedNotes.html">Some Advanced Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Resources.html">Additional Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Attributions.html">Attributions</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Current Section <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Session III: Collisions and Physics</a><ul>
+<li><a class="reference internal" href="#getting-to-know-colliders-and-rigidbodies">Getting To Know Colliders and Rigidbodies</a></li>
+<li><a class="reference internal" href="#using-the-oncollisionenter-function">Using the OnCollisionEnter Function</a></li>
+<li><a class="reference internal" href="#managing-what-can-collide-with-tags">Managing What Can Collide With Tags</a></li>
+<li><a class="reference internal" href="#make-an-object-sliceable">Make an Object Sliceable</a></li>
+<li><a class="reference internal" href="#extra-things-to-try">Extra Things to Try</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="Scripting.html" title="Previous Chapter: Session II: Controlling Objects With Scripts"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Session II: C...</span>
+    </a>
+  </li>
+  <li>
+    <a href="Controllers.html" title="Next Chapter: Session IV: Attaching User Controls"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Session IV: A... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary">
+  <li>
+    <a href="Scripting.html" title="Previous Chapter: Session II: Controlling Objects With Scripts"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Session II: C...</span>
+    </a>
+  </li>
+  <li>
+    <a href="Controllers.html" title="Next Chapter: Session IV: Attaching User Controls"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Session IV: A... &raquo;</span>
+    </a>
+  </li>
+<form action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <div class="section" id="session-iii-collisions-and-physics">
+<h1>Session III: Collisions and Physics<a class="headerlink" href="#session-iii-collisions-and-physics" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>getting to know Colliders and Rigidbodies</li>
+<li>using the OnCollisionEnter function</li>
+<li>managing what can collide with Tags</li>
+<li>gravity, kinematics, and friction</li>
+</ul>
+<div class="section" id="getting-to-know-colliders-and-rigidbodies">
+<h2>Getting To Know Colliders and Rigidbodies<a class="headerlink" href="#getting-to-know-colliders-and-rigidbodies" title="Permalink to this headline">¶</a></h2>
+<p>Understanding when and how objects intersect with each other in a Unity scene is</p>
+<p>To understand how collisions and physics work in Unity we're going to have to get to know some more components: Colliders and Rigidbodies. When you're trying to get something working, it can sometimes be confusing which you're working with so it's helpful to build a good mental model of the differences between them.</p>
+<p><strong>Colliders</strong>: calculate the intersection between the colliders of other objects and importantly are frequently <em>not</em> the same shape as the mesh used for drawing.</p>
+<p><strong>Rigidbodies</strong>: apply force to an object based on inputs from the environment and can be configured to account for gravity or specific constraints.</p>
+<p>Most of the objects you've worked with so far come with a collider attached. It's typically a regular geometric shape that can be represented by a few variables that is relatively cheap to compute. If you need to detect collisions with more precision you can change to a <code class="docutils literal"><span class="pre">Mesh</span></code> that matches your visual model exactly.</p>
+</div>
+<div class="section" id="using-the-oncollisionenter-function">
+<h2>Using the OnCollisionEnter Function<a class="headerlink" href="#using-the-oncollisionenter-function" title="Permalink to this headline">¶</a></h2>
+<p>The most important thing you'll</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">OnCollisionEnter</span><span class="p">(</span><span class="n">Collision</span> <span class="n">col</span><span class="p">){</span>
+  <span class="n">Debug</span><span class="o">.</span><span class="n">Log</span> <span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">Format</span><span class="p">(</span><span class="s2">&quot;OnCollisionEnter: </span><span class="si">{0}</span><span class="s2"> hits </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">col</span><span class="o">.</span><span class="n">gameObject</span><span class="o">.</span><span class="n">name</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="n">OnCollisionExit</span><span class="p">(</span><span class="n">Collision</span> <span class="n">col</span><span class="p">){</span>
+  <span class="n">Debug</span><span class="o">.</span><span class="n">Log</span> <span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">Format</span><span class="p">(</span><span class="s2">&quot;OnCollisionExit: </span><span class="si">{0}</span><span class="s2"> lost contact with </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">col</span><span class="o">.</span><span class="n">gameObject</span><span class="o">.</span><span class="n">name</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="managing-what-can-collide-with-tags">
+<h2>Managing What Can Collide With Tags<a class="headerlink" href="#managing-what-can-collide-with-tags" title="Permalink to this headline">¶</a></h2>
+<p>In the <code class="docutils literal"><span class="pre">Edit</span> <span class="pre">&gt;</span> <span class="pre">Project</span> <span class="pre">Settings</span> <span class="pre">&gt;</span> <span class="pre">Tags</span> <span class="pre">and</span> <span class="pre">Layers</span></code> menu, click the plus sign to add some custom tags. For our scene we'll use &quot;Sliceable&quot; and &quot;Strong&quot;. There several default tags that exist but we can add our own.</p>
+<p>When you select an object in the Hierarchy View and in the Inspector View you'll see the Tag dropdown under the object name. Select the Pillar object (or add it from a Prefab if its not in the scene already) and change its tag to <code class="docutils literal"><span class="pre">Strong</span></code>.</p>
+<p>For now, create a new Cube and change its tag to <code class="docutils literal"><span class="pre">Sliceable</span></code></p>
+</div>
+<div class="section" id="make-an-object-sliceable">
+<h2>Make an Object Sliceable<a class="headerlink" href="#make-an-object-sliceable" title="Permalink to this headline">¶</a></h2>
+<p>To slice an object, there are two GameObjects we need to think about: the blade and the object being sliced. We could manage this collision from either place, but since we might slice multiple objects, we'll try to do most of the work on the blade - and we'll do that by writing a script.</p>
+<ul class="simple">
+<li>add a Cube to the scene</li>
+<li>resize it to 0.3, 0.3, 0.3 (this is pretty good for a human-scale object)</li>
+<li>tag the cube as 'Sliceable'</li>
+</ul>
+<p>On the blade object, create a new script and name it <code class="docutils literal"><span class="pre">BladeController</span></code>. Then perform the following updates:</p>
+<ul class="simple">
+<li>set up functions for  <code class="docutils literal"><span class="pre">OnCollisionEnter</span></code> and <code class="docutils literal"><span class="pre">OnCollisionExit</span></code></li>
+<li>add a top-level variable to reference the sliced pieces <code class="docutils literal"><span class="pre">private</span> <span class="pre">GameObject[]</span> <span class="pre">pieces;</span></code></li>
+<li>add a check to see if the collided object is sliceable: <code class="docutils literal"><span class="pre">if</span> <span class="pre">(col.gameObject.tag</span> <span class="pre">==</span> <span class="pre">&quot;Sliceable&quot;)</span></code></li>
+<li>import the BLINDED_AM_ME package into your assets folder and set up the code to cut the object:</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pieces</span> <span class="o">=</span> <span class="n">BLINDED_AM_ME</span><span class="o">.</span><span class="n">MeshCut</span><span class="o">.</span><span class="n">Cut</span> <span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">gameObject</span><span class="p">,</span> <span class="n">transform</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="n">transform</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">replacementMaterial</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">pieces</span><span class="o">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Debug</span><span class="o">.</span><span class="n">Log</span> <span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">Format</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> of </span><span class="si">{1}</span><span class="s2"> pieces: </span><span class="si">{2}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">pieces</span><span class="o">.</span><span class="n">Length</span><span class="p">,</span> <span class="n">pieces</span> <span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">Rigidbody</span><span class="o">&gt;</span> <span class="p">()));</span>
+
+  <span class="o">//</span> <span class="n">add</span> <span class="n">more</span> <span class="n">stuff</span> <span class="n">here</span> <span class="n">shortly</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Give that a try and make sure you've got the basics working.</p>
+<p>If you've got new meshes being created, that's pretty good, but there's a few problems with what we've got so far. For instance, try pausing and looking at the objects you've sliced. The collider is still the same size and shape as the original. That leads to some weird behaviors - especially if you intend to slice objects more than once. To get cuts that match how we swing we need to make sure the collider matches the object exactly. To do that, we'll swap out the existing collider and add a fresh a MeshCollider.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Remove</span> <span class="n">existing</span> <span class="n">colliders</span> <span class="k">if</span> <span class="n">they</span> <span class="n">exist</span>
+<span class="n">Destroy</span> <span class="p">(</span><span class="n">piece</span><span class="o">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">BoxCollider</span><span class="o">&gt;</span> <span class="p">());</span>
+<span class="n">Destroy</span> <span class="p">(</span><span class="n">piece</span><span class="o">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">CapsuleCollider</span><span class="o">&gt;</span> <span class="p">());</span>
+<span class="n">Destroy</span> <span class="p">(</span><span class="n">piece</span><span class="o">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">SphereCollider</span><span class="o">&gt;</span> <span class="p">());</span>
+<span class="n">Destroy</span> <span class="p">(</span><span class="n">piece</span><span class="o">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">MeshCollider</span><span class="o">&gt;</span> <span class="p">());</span>
+
+<span class="o">//</span> <span class="n">Add</span> <span class="n">a</span> <span class="n">MeshCollider</span> <span class="n">to</span> <span class="n">match</span> <span class="n">the</span> <span class="n">exact</span> <span class="n">shape</span> <span class="n">of</span> <span class="n">the</span> <span class="n">new</span> <span class="n">piece</span>
+<span class="n">piece</span><span class="o">.</span><span class="n">AddComponent</span><span class="o">&lt;</span><span class="n">MeshCollider</span><span class="o">&gt;</span> <span class="p">()</span><span class="o">.</span><span class="n">convex</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>We also need to make sure that each new piece has a rigid body</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>// Ensure the new piece has a Rigidbody
+if (!piece.GetComponent&lt;Rigidbody&gt; ()) {
+  piece.AddComponent&lt;Rigidbody&gt; ();
+}
+</pre></div>
+</div>
+<p>If you find the blade is coming into too many objects too quickly, we can handle that by setting a bool to disable the blade when it enters a collision and enable it when it exits the collision.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">bladeEnabled</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The last item to update is to make sure that every piece is tagged as Sliceable - place that in the <code class="docutils literal"><span class="pre">OnCollisionExit</span></code> to prevent the newly created pieces from generating new collisions and then reenable the blade.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">pieces</span><span class="o">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">pieces</span> <span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tag</span> <span class="o">=</span> <span class="s2">&quot;Sliceable&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">bladeEnabled</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="extra-things-to-try">
+<h2>Extra Things to Try<a class="headerlink" href="#extra-things-to-try" title="Permalink to this headline">¶</a></h2>
+<p>Experiment with adding physics effects. Can you re-create bullet time? Can you add some visual effects that make the sword change color when certain things happen?</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Keelan Downton.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

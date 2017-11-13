@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Session I: Setting Up and Using Unity 3D for VR &#8212; Getting Started With VR 0.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Session II: Controlling Objects With Scripts" href="Scripting.html" />
+    <link rel="prev" title="Before You Arrive" href="Prerequisites.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Getting Started With VR</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Contents <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Prerequisites.html">Before You Arrive</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Session I: Setting Up and Using Unity 3D for VR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Session II: Controlling Objects With Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CollisionsAndPhysics.html">Session III: Collisions and Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Controllers.html">Session IV: Attaching User Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TexturesShadersAndSound.html">Session V: Enhancing With Textures, Shaders and Sound</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AdvancedNotes.html">Some Advanced Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Resources.html">Additional Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Attributions.html">Attributions</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Current Section <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Session I: Setting Up and Using Unity 3D for VR</a><ul>
+<li><a class="reference internal" href="#the-user-interface">The User Interface</a></li>
+<li><a class="reference internal" href="#creating-gameobjects">Creating GameObjects</a></li>
+<li><a class="reference internal" href="#move-rotate-and-scale">Move, Rotate, and Scale</a></li>
+<li><a class="reference internal" href="#working-with-hierarchies">Working With Hierarchies</a></li>
+<li><a class="reference internal" href="#working-with-imported-assets">Working With Imported Assets</a><ul>
+<li><a class="reference internal" href="#wrong-file-format">Wrong File Format</a></li>
+<li><a class="reference internal" href="#wrong-size-rotation">Wrong Size / Rotation</a></li>
+<li><a class="reference internal" href="#too-many-triangles">Too Many Triangles</a></li>
+<li><a class="reference internal" href="#missing-textures-materials">Missing Textures/Materials</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#avoiding-project-gotchas">Avoiding Project Gotchas</a><ul>
+<li><a class="reference internal" href="#special-folders">Special Folders</a></li>
+<li><a class="reference internal" href="#saving-the-scene-but-not-the-project">Saving the Scene But Not The Project</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="Prerequisites.html" title="Previous Chapter: Before You Arrive"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Before You Arrive</span>
+    </a>
+  </li>
+  <li>
+    <a href="Scripting.html" title="Next Chapter: Session II: Controlling Objects With Scripts"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Session II: C... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary">
+  <li>
+    <a href="Prerequisites.html" title="Previous Chapter: Before You Arrive"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Before You Arrive</span>
+    </a>
+  </li>
+  <li>
+    <a href="Scripting.html" title="Next Chapter: Session II: Controlling Objects With Scripts"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Session II: C... &raquo;</span>
+    </a>
+  </li>
+<form action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <div class="section" id="session-i-setting-up-and-using-unity-3d-for-vr">
+<h1>Session I: Setting Up and Using Unity 3D for VR<a class="headerlink" href="#session-i-setting-up-and-using-unity-3d-for-vr" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>The User Interface</li>
+<li>Some Non-standard Settings to Enable</li>
+<li>Importing Packages</li>
+<li>Special Folders</li>
+<li>Move, Rotate, Scale</li>
+<li>Transforms and Components</li>
+<li>Building Executables</li>
+</ul>
+<div class="section" id="the-user-interface">
+<h2>The User Interface<a class="headerlink" href="#the-user-interface" title="Permalink to this headline">¶</a></h2>
+<p>The interface in Unity is organized as a series of &quot;windows&quot; laid out in an adjustable grid. Windows can be resized and dragged around to a position that makes sense for your workflow. Each has at least one tab which identifies the  and in the upper right hand corner a dropdown menu will let you close, maximize or add a new tab.</p>
+<p><a class="reference external" href="https://docs.unity3d.com/Manual/LearningtheInterface.html">Unity Documentation: Learning the Interface</a></p>
+<ul class="simple">
+<li><strong>Hierarchy</strong>: shows objects in the current scene and how they are nested as parents and children (sometimes this is for organization, sometimes this is for efficient operations or a group of objects)</li>
+<li><strong>Scene</strong>: shows a view of how objects are arranged in a scene with an xyz axis indicator in the upper right corner</li>
+<li><strong>Game</strong>: shows a view from the perspective of the camera - when you click the play button in the Toolbar, it will be brought to the front automatically and run your scene inside the editor</li>
+<li><strong>Inspector</strong>: a view into the metadata of each object.</li>
+<li><strong>Project</strong>: your file system directories under <code class="docutils literal"><span class="pre">./Assets</span></code> which can be dragged into the <em>Hierarchy</em>, <em>Scene</em>, or certain places in the</li>
+<li><strong>Console</strong>: this is the <em>stdout</em> of Unity - when you break stuff, errors show up here - and you can write there directly from scripts using <code class="docutils literal"><span class="pre">Debug.Log(&quot;hello</span> <span class="pre">console&quot;);</span></code></li>
+<li><strong>And more...</strong>: there are several additional window types that will help you perform more complicated functions (and, you can even create your own!) but these cover most of what you need to get started</li>
+</ul>
+</div>
+<div class="section" id="creating-gameobjects">
+<h2>Creating GameObjects<a class="headerlink" href="#creating-gameobjects" title="Permalink to this headline">¶</a></h2>
+<p>Now that you've got some sense of the interface, lets make some GameObjects!</p>
+<p>In the main file menu, select <code class="docutils literal"><span class="pre">GameObject</span> <span class="pre">&gt;</span> <span class="pre">3D</span> <span class="pre">Object</span> <span class="pre">&gt;</span> <span class="pre">Cube</span></code>. You should see a cube appear in the <code class="docutils literal"><span class="pre">Scene</span></code> window. If you do not see it, find the Cube in the <code class="docutils literal"><span class="pre">Hierachy</span></code> window and double click on it. That should bring the Cube into focus in the Scene view.</p>
+<p>Notice that in the Inspector window, under the object name are a set of rows for <code class="docutils literal"><span class="pre">Transform</span></code>, <code class="docutils literal"><span class="pre">MeshFilter</span></code>, <code class="docutils literal"><span class="pre">BoxCollider</span></code>, <code class="docutils literal"><span class="pre">MeshRenderer</span></code>, and <code class="docutils literal"><span class="pre">DefaultMaterial</span></code>. These are all <code class="docutils literal"><span class="pre">Components</span></code>. Each has different properties available in the editor but they all have a link to documentation and a menu in their upper right corner.</p>
+<p>Add some additional 3D objects to the scene such as a <code class="docutils literal"><span class="pre">Sphere</span></code> and a <code class="docutils literal"><span class="pre">Cylinder</span></code>.</p>
+<p>Now, try creating an <code class="docutils literal"><span class="pre">Empty</span></code>. Notice that it appears in the Hierarchy tab as a <code class="docutils literal"><span class="pre">GameObject</span></code> and that it appears in the Inspector as a <code class="docutils literal"><span class="pre">Transform</span></code>.</p>
+</div>
+<div class="section" id="move-rotate-and-scale">
+<h2>Move, Rotate, and Scale<a class="headerlink" href="#move-rotate-and-scale" title="Permalink to this headline">¶</a></h2>
+<p>Just as the fundamental unit of a <code class="docutils literal"><span class="pre">GameObject</span></code> is a <code class="docutils literal"><span class="pre">Transform</span></code>, the fundamental actions you'll take on GameObjects in the Scene window are manipulations of that Transform.</p>
+<p>The most obvious way to switch between these methods of manipulation is the Toolbar. When you click on one of the icons in the upper left, it changes how your mouse behaves in the Scene window (and )</p>
+<p>But you don't really want to be sliding your mouse up to the Toolbar every time you want to move <em>and</em> rotate an object, do you? Of course not. The faster way to switch modes is to utilize the provided hotkeys. They are arranged optimized for right-handed users of QWERTY keyboards, but even if that's not you, they can still be really useful, so it's worth building the muscle memory to use them.</p>
+<p><img alt="_images/UnityHotkeys.png" src="_images/UnityHotkeys.png" />hotkey table</p>
+<p>The complete list of hotkeys can be found at <a class="reference external" href="https://docs.unity3d.com/Manual/UnityHotkeys.html">Unity Documentation: Hotkeys</a></p>
+<p>Take a few minutes to play with the position, rotation, and scale of your objects (you may want to )</p>
+<p>Notice that the colored lines correspond to the axis key in the upper right hand corner: red =&gt; x, green =&gt; y, blue =&gt; z. The direction they are pointing is the positive number.</p>
+<p>If you maximized a Scene tab, select from the upper right corner again to unmaximize.</p>
+</div>
+<div class="section" id="working-with-hierarchies">
+<h2>Working With Hierarchies<a class="headerlink" href="#working-with-hierarchies" title="Permalink to this headline">¶</a></h2>
+<p>Once you have a few objects in scene, you can see them stacking up in the <em>Hierarchy</em> view, but right now the objects are probably all children of the scene itself. You can place objects in a hierarchy by dragging and dropping them in hthat window.</p>
+<p>Let's go back to our basic objects and arrange them with a little more intention.</p>
+<ul class="simple">
+<li>add a Cylinder and rename it 'Axel' (you can do this in the <em>Inspector</em> window)</li>
+<li>add a Cube above it and rename it 'Gear'</li>
+<li>add a few spheres and position them at varying distances from the cube.</li>
+<li>make the cube a child of the cylinder.</li>
+<li>make the spheres all childern of the cube.</li>
+</ul>
+<p>Now you should have a set of five objects arranged in a hierarchy where:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Scene</span><span class="p">]</span>
+<span class="o">|--</span> <span class="n">Axel</span>
+  <span class="o">|--</span><span class="n">Gear</span>
+    <span class="o">|--</span> <span class="n">Sphere</span>
+    <span class="o">|--</span> <span class="n">Sphere</span>
+    <span class="o">|--</span> <span class="n">Sphere</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>select the 'Gear' in the hierarchy and change its scale.</li>
+<li>then, select a few of the spheres and change their scale.</li>
+<li>then, select the 'Axel' in the hierarchy and change its rotation</li>
+</ul>
+</div>
+<div class="section" id="working-with-imported-assets">
+<h2>Working With Imported Assets<a class="headerlink" href="#working-with-imported-assets" title="Permalink to this headline">¶</a></h2>
+<p>OK, enough with these cubes, spheres and cylinders - what else can we put in our scene? As you're getting started, it's much easier to prototype with creative commons or other free-as-in-beer licensed assets than to learn how to create them from scratch. You can find some suggestions for places to find assets of varying quality in the resources section.</p>
+<p>When you import assets from other sources, however, they may not be optimized for Unity (much like free stock photography vs paid stock photography, good optimization is one of those things you should look for and expect as your project gets to a place you are willing to spend more money for assets). Here's a couple of things you may have to manage as you import things from different sources:</p>
+<div class="section" id="wrong-file-format">
+<h3>Wrong File Format<a class="headerlink" href="#wrong-file-format" title="Permalink to this headline">¶</a></h3>
+<p>Unity can read many file types but sometimes you'll come across something that doesn't show up in the Assets directory of the <em>Project</em> pane the way you expect. One of the common formats is <code class="docutils literal"><span class="pre">.stl</span></code> (i.e. <a class="reference external" href="https://en.wikipedia.org/wiki/STL_(file_format)">STereoLithograhy/Standard Triangle Language</a> which are produced by CAD design programs and can be used for 3D printing. You can convert those in a program like <em>Blender</em> to a more generic format like <code class="docutils literal"><span class="pre">.obj</span></code> (i.e. <a class="reference external" href="https://en.wikipedia.org/wiki/Wavefront_.obj_file">Wavefront</a>).</p>
+</div>
+<div class="section" id="wrong-size-rotation">
+<h3>Wrong Size / Rotation<a class="headerlink" href="#wrong-size-rotation" title="Permalink to this headline">¶</a></h3>
+<p>Unity uses scale of 1 meter per unit. If the designer built an asset with a different scale in mind, you'll end up with either a giant or tiny object. You can resolve those issues by change the object in a 3d-editing application like blender, but the quick and easy way to deal with that in unity is to use the hierarchy to your advantage. If scale is the only issue, click on the asset in the Project view and change the Scale Factor in the Inspector. For more complex arrangement, create an empty GameObject at <code class="docutils literal"><span class="pre">[0,0,0]</span></code> and name it something meaningful like &quot;AwesomeSword&quot;. Make the object you imported a child of the empty object, then scale it to the size you want and then move/rotate it so that it is correctly oriented and will rotate the way you expect when you manipulate the parent object.</p>
+<p>If you are scaling the object uniformly, you can assign this in the <em>Inspector</em> view before you drag the asset from the <em>Project</em> view into the <em>Scene</em>.</p>
+<p>Try this now with <a class="reference external" href="http://grabcad.com/library/morrowind-daedric-claymore-1">Morrowwind Daedric Claymore by Andrea Mendicino</a>. You can find it in the <code class="docutils literal"><span class="pre">./pre_assets</span></code> directory. It was originally downloaded from <a class="reference external" href="http://grabcad.com">GrabCAD</a> and converted from a <code class="docutils literal"><span class="pre">.stl</span></code> file to a <code class="docutils literal"><span class="pre">.obj</span></code> file in blender. You may want to visit there later and browse some of the art people have created there.</p>
+<p>Since we are going to be using some specialized scripts for some later functionality, make sure the handle is pointed in the positive z (blue arrow) direction of your parent object and the blade is pointed to the negative z (opposite the blue arrow) direction.</p>
+</div>
+<div class="section" id="too-many-triangles">
+<h3>Too Many Triangles<a class="headerlink" href="#too-many-triangles" title="Permalink to this headline">¶</a></h3>
+<p>Another issue that can come up is assets that have too many triangles. You'll mostly notice this in terms of performance problems. The more triangles, the more calculations that have to be performed in order to render that object.</p>
+<p>If you want to see how many triangles your object has, look for the <code class="docutils literal"><span class="pre">mesh</span></code> part in the <em>Project</em> view. When you click on it, you'll see a count in the <em>Inspector</em> tab. You can see that this the claymore has a <em>lot</em> at ~600,000 and its handle decoration uses another ~300,000.</p>
+<p>Optimizing the number of triangles is a longer topic that involves both editing the mesh itself and using tricks with other topics we'll touch on later like textures and shaders to achieve similar details. If you want to begin exploring techniques for this, you can open up <em>Blender</em> and use its <a class="reference external" href="https://docs.blender.org/manual/en/dev/modeling/modifiers/generate/decimate.html">decimate feature</a>:</p>
+<ul class="simple">
+<li>select object in the <code class="docutils literal"><span class="pre">Outliner</span></code> (like Unity's <code class="docutils literal"><span class="pre">Hierarchy</span></code> view)</li>
+<li>select the wrench icon in the <code class="docutils literal"><span class="pre">Properties</span></code> view to change the menu options</li>
+<li>select <code class="docutils literal"><span class="pre">Add</span> <span class="pre">Modifier</span> <span class="pre">&gt;</span> <span class="pre">Decimate</span></code></li>
+<li>select the percent you want to reduce it and examine it in the view</li>
+<li>once you find the balance you want use <code class="docutils literal"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Export</span> <span class="pre">&gt;</span> <span class="pre">Wavefront</span> <span class="pre">(.obj)</span></code> to save it to your Unity project Assets directory</li>
+</ul>
+<p>(or you can just use the <code class="docutils literal"><span class="pre">_low_poly.obj</span></code> version from the <code class="docutils literal"><span class="pre">./pre_assets</span></code> directory)</p>
+</div>
+<div class="section" id="missing-textures-materials">
+<h3>Missing Textures/Materials<a class="headerlink" href="#missing-textures-materials" title="Permalink to this headline">¶</a></h3>
+<p>If an object shows up bright purple in the scene, it generally means that it references a material, but that material cannot be found. Check to see if you missed importing something - you may need to drag and drop materials to different meshes in the Hierarchy View or the Inspector.</p>
+<p>If you can't find it, create a new material and assign it in the Inspector (it will be listed in the Mesh Renderer). You can use the Albedo Map to assign simple colors.</p>
+<p>If you don't have a Mesh Renderer, something really went wrong but you still might be able to resolve it by clicking Add Component and adding one.</p>
+</div>
+</div>
+<div class="section" id="avoiding-project-gotchas">
+<h2>Avoiding Project Gotchas<a class="headerlink" href="#avoiding-project-gotchas" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="special-folders">
+<h3>Special Folders<a class="headerlink" href="#special-folders" title="Permalink to this headline">¶</a></h3>
+<p>In the Project window (i.e your <code class="docutils literal"><span class="pre">./Assets</span></code> directory), certain subdirectory names function in special ways: <code class="docutils literal"><span class="pre">Editor</span></code>, <code class="docutils literal"><span class="pre">Gizmos</span></code>,<code class="docutils literal"><span class="pre">Resources</span></code>,<code class="docutils literal"><span class="pre">Plugins</span></code>, <code class="docutils literal"><span class="pre">StandardAssets</span></code>, and <code class="docutils literal"><span class="pre">StreamingAssets</span></code>. You can read the details about what each one is for in <a class="reference external" href="https://docs.unity3d.com/Manual/SpecialFolders.html">Unity Documentation: Special Folders</a> but for the most part it's enough to know that they will be interpreted by the editor and the compiler in specific ways (for instance, the compiler ignores everything in <code class="docutils literal"><span class="pre">./Editor</span></code> and <code class="docutils literal"><span class="pre">./Gizmos</span></code>) so name your organizational subdirectories something different. If you see names like <code class="docutils literal"><span class="pre">Prefabs</span></code>,<code class="docutils literal"><span class="pre">Scenes</span></code> or <code class="docutils literal"><span class="pre">Levels</span></code>, <code class="docutils literal"><span class="pre">Materials</span></code>, and <code class="docutils literal"><span class="pre">Textures</span></code>, those are common conventions but don't perform any function beyond making it easy for other people to understand your project.</p>
+</div>
+<div class="section" id="saving-the-scene-but-not-the-project">
+<h3>Saving the Scene But Not The Project<a class="headerlink" href="#saving-the-scene-but-not-the-project" title="Permalink to this headline">¶</a></h3>
+<p>You get a <code class="docutils literal"><span class="pre">*</span></code> indicator in the main Unity window and the Hierarchy window when your current scene isn't saved but it's not always obvious when you've changed a project-level settings. The main save command, <code class="docutils literal"><span class="pre">Ctrl/Command</span> <span class="pre">+</span> <span class="pre">S</span></code> will save the scene (i.e. <code class="docutils literal"><span class="pre">MyAwesomeScene.unity</span></code>)</p>
+<p>Under the <code class="docutils literal"><span class="pre">File</span></code> menu there is also an option to <code class="docutils literal"><span class="pre">Save</span> <span class="pre">Project</span></code> which will save options such as <code class="docutils literal"><span class="pre">Tags</span></code>, <code class="docutils literal"><span class="pre">BuildSettings</span></code>, <code class="docutils literal"><span class="pre">Lighting</span></code>, etc. These are all stored in <code class="docutils literal"><span class="pre">./ProjectSettings/*.assets</span></code> files outside of the <code class="docutils literal"><span class="pre">./Assets</span></code> directory. Failure to commit these changes to git or failure to notice local changes to a pulled branch are frequently the cause of many headaches when working on Unity projects with others.</p>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Keelan Downton.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

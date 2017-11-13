@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Session II: Controlling Objects With Scripts &#8212; Getting Started With VR 0.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Session III: Collisions and Physics" href="CollisionsAndPhysics.html" />
+    <link rel="prev" title="Session I: Setting Up and Using Unity 3D for VR" href="SetupAndBasics.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Getting Started With VR</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Contents <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Prerequisites.html">Before You Arrive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SetupAndBasics.html">Session I: Setting Up and Using Unity 3D for VR</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Session II: Controlling Objects With Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CollisionsAndPhysics.html">Session III: Collisions and Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Controllers.html">Session IV: Attaching User Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TexturesShadersAndSound.html">Session V: Enhancing With Textures, Shaders and Sound</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AdvancedNotes.html">Some Advanced Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Resources.html">Additional Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Attributions.html">Attributions</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Current Section <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Session II: Controlling Objects With Scripts</a><ul>
+<li><a class="reference internal" href="#adding-a-script-to-a-gameobject">Adding a Script to a GameObject</a></li>
+<li><a class="reference internal" href="#basic-functions">Basic Functions</a></li>
+<li><a class="reference internal" href="#additional-monobehaviour-functions">Additional Monobehaviour Functions</a><ul>
+<li><a class="reference internal" href="#awake">Awake</a></li>
+<li><a class="reference internal" href="#onfixedupdate">OnFixedUpdate</a></li>
+<li><a class="reference internal" href="#oncollisionenter-oncollisionexit">OnCollisionEnter / OnCollisionExit</a></li>
+<li><a class="reference internal" href="#onrenderimage">OnRenderImage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#attributes">Attributes</a><ul>
+<li><a class="reference internal" href="#serializefield">SerializeField</a></li>
+<li><a class="reference internal" href="#requirecomponent">RequireComponent</a></li>
+<li><a class="reference internal" href="#menuitem">MenuItem</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#trigger-actions-from-keyboard-input">Trigger Actions from Keyboard input</a><ul>
+<li><a class="reference internal" href="#simple-logging">Simple Logging</a></li>
+<li><a class="reference internal" href="#setting-up-a-scripted-camera-fade">Setting up a Scripted Camera Fade</a></li>
+<li><a class="reference internal" href="#arranging-things-in-your-scene">Arranging Things in Your Scene</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="SetupAndBasics.html" title="Previous Chapter: Session I: Setting Up and Using Unity 3D for VR"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Session I: Se...</span>
+    </a>
+  </li>
+  <li>
+    <a href="CollisionsAndPhysics.html" title="Next Chapter: Session III: Collisions and Physics"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Session III: ... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary">
+  <li>
+    <a href="SetupAndBasics.html" title="Previous Chapter: Session I: Setting Up and Using Unity 3D for VR"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Session I: Se...</span>
+    </a>
+  </li>
+  <li>
+    <a href="CollisionsAndPhysics.html" title="Next Chapter: Session III: Collisions and Physics"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Session III: ... &raquo;</span>
+    </a>
+  </li>
+<form action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <div class="section" id="session-ii-controlling-objects-with-scripts">
+<h1>Session II: Controlling Objects With Scripts<a class="headerlink" href="#session-ii-controlling-objects-with-scripts" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>Adding a Script to a GameObject</li>
+<li>Start() and Update()</li>
+<li>Other Important Monobehavior Functions</li>
+<li>Scripts in Hierarchies</li>
+<li>Triggering actions from keyboard input</li>
+<li>Trigger actions from controller input</li>
+</ul>
+<p>Almost everything you can do with the graphical editor you can do with scripts in C#. It's not always obvious how to do it, but a combination of reading Unity Documentation and searching in community forums will usually turn up some examples.</p>
+<div class="section" id="adding-a-script-to-a-gameobject">
+<h2>Adding a Script to a GameObject<a class="headerlink" href="#adding-a-script-to-a-gameobject" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Create a Cube in the Hierarchy (from the menu: <code class="docutils literal"><span class="pre">GameObject&gt;3D</span> <span class="pre">Object&gt;Cube</span></code> or right-click in the window)</li>
+<li>If the object is not visible in a scene window, double-click on the object in the Hierarchy and it should be brought into focus</li>
+<li>In the Inspector, click <code class="docutils literal"><span class="pre">Add</span> <span class="pre">Component</span></code> and type <code class="docutils literal"><span class="pre">MyTestScript</span></code> then click <code class="docutils literal"><span class="pre">New</span> <span class="pre">Script</span></code> and click <code class="docutils literal"><span class="pre">Create</span> <span class="pre">and</span> <span class="pre">Add</span></code> (you should now see that script attached to your Cube in the Inspector and appear in your Project window)</li>
+<li>In the Inspector or Project window, double-click the <code class="docutils literal"><span class="pre">MyTestScript</span></code> file - this should open a text editor (by default it is <code class="docutils literal"><span class="pre">Monodevelop</span></code> but you can change it in the menu <code class="docutils literal"><span class="pre">Edit&gt;Preferences&gt;External</span> <span class="pre">Tools</span></code>, though you may want to make sure you can get C# code completion in your favorite editor before changing it since it's one of the fastest ways to learn)</li>
+</ul>
+</div>
+<div class="section" id="basic-functions">
+<h2>Basic Functions<a class="headerlink" href="#basic-functions" title="Permalink to this headline">¶</a></h2>
+<p>In C#, functions take the following form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">optional</span><span class="o">-</span><span class="n">scope</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="k">return</span><span class="o">-</span><span class="nb">type</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">FunctionName</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">optional</span><span class="o">-</span><span class="n">args</span><span class="o">&gt;</span><span class="p">){</span>
+  <span class="o">//</span> <span class="n">some</span> <span class="n">awesome</span> <span class="n">stuff</span>
+  <span class="k">return</span> <span class="o">&lt;</span><span class="k">return</span> <span class="nb">type</span><span class="o">&gt;</span><span class="p">;</span> <span class="o">//</span> <span class="k">if</span> <span class="n">the</span> <span class="k">return</span><span class="o">-</span><span class="nb">type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">void</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In practice, that looks like:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="nb">float</span> <span class="n">MultByOnePointSeven</span><span class="p">(</span><span class="nb">int</span> <span class="n">n</span><span class="p">){</span>
+  <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="mf">1.7</span><span class="n">f</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>By default, scripts extend the <code class="docutils literal"><span class="pre">Monobehaviour</span></code> class which gives you a number of useful functions (<code class="docutils literal"><span class="pre">&lt;optional-scope&gt;</span> <span class="pre">class</span> <span class="pre">&lt;classname&gt;</span> <span class="pre">{}</span></code> is how classes are declared in C# and <code class="docutils literal"><span class="pre">:</span></code> is used after the classname to inherit from a parent class). We can build an understanding of those functions by observing their behavior in the Console.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Use</span> <span class="n">this</span> <span class="k">for</span> <span class="n">initialization</span>
+<span class="n">void</span> <span class="n">Start</span><span class="p">(){</span>
+  <span class="n">Debug</span><span class="o">.</span><span class="n">Log</span><span class="p">(</span><span class="s2">&quot;MyTestScript&gt;Start&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Update</span> <span class="ow">is</span> <span class="n">called</span> <span class="n">once</span> <span class="n">per</span> <span class="n">frame</span>
+<span class="n">void</span> <span class="n">Update</span><span class="p">(){</span>
+  <span class="n">Debug</span><span class="o">.</span><span class="n">Log</span><span class="p">(</span><span class="s2">&quot;MyTestScript&gt;Update&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now, switch back to the editor and hit play. If you Console tab is visible, you should see one message from <code class="docutils literal"><span class="pre">Start</span></code> and hundreds from <code class="docutils literal"><span class="pre">Update</span></code>. When you are getting a lot of repeat messages, you can collapse them into a single message by toggling <code class="docutils literal"><span class="pre">Collapse</span></code> on the Console tab.</p>
+<p>To get a sense of how <code class="docutils literal"><span class="pre">Update</span></code> can be used, lets introduce a counter variable. Declare a</p>
+<p><code class="docutils literal"><span class="pre">float</span> <span class="pre">myVariable</span> <span class="pre">=</span> <span class="pre">0;</span></code></p>
+<p>Modify function to increment <code class="docutils literal"><span class="pre">myVariable</span></code> and the Log statement to display the counter variable (it is possible to use <code class="docutils literal"><span class="pre">+</span></code> to concatenate string values in C# but better form to use <code class="docutils literal"><span class="pre">string.Format</span></code>)</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">Update</span><span class="p">(){</span>
+  <span class="n">myVariable</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="n">Debug</span><span class="o">.</span><span class="n">Log</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">Format</span><span class="p">(</span><span class="s2">&quot;MyTestScript&gt;Update myVariable: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">myVariable</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="additional-monobehaviour-functions">
+<h2>Additional Monobehaviour Functions<a class="headerlink" href="#additional-monobehaviour-functions" title="Permalink to this headline">¶</a></h2>
+<p>The complete list of functions available to Monobehaviours is available in the <a class="reference external" href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.html">documentation</a> but here's a few more you may see:</p>
+<div class="section" id="awake">
+<h3>Awake<a class="headerlink" href="#awake" title="Permalink to this headline">¶</a></h3>
+<p>Awake is for things that should happen when a script is first loaded but do not need to be run every time it is enabled. Try adding an Awake function to your test script with its own Debug statement. In the editor, click the checkbox to disable your</p>
+</div>
+<div class="section" id="onfixedupdate">
+<h3>OnFixedUpdate<a class="headerlink" href="#onfixedupdate" title="Permalink to this headline">¶</a></h3>
+<p>Like <code class="docutils literal"><span class="pre">Update</span></code> but it runs every so many milliseconds rather than every frame. This can be important if you are trying to do realistic physics simulations</p>
+</div>
+<div class="section" id="oncollisionenter-oncollisionexit">
+<h3>OnCollisionEnter / OnCollisionExit<a class="headerlink" href="#oncollisionenter-oncollisionexit" title="Permalink to this headline">¶</a></h3>
+<p>These functions are both used for collision detection. (we'll use this a little later).</p>
+</div>
+<div class="section" id="onrenderimage">
+<h3>OnRenderImage<a class="headerlink" href="#onrenderimage" title="Permalink to this headline">¶</a></h3>
+<p>This function is used for post-processing (we'll use this a little later).</p>
+</div>
+</div>
+<div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<p>One of the features of C# as a language is that you can you '<a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/attributes/index">attributes</a>' to provide metadata about your functions using square bracket notation. Unity leverages this to provide paths for users to customize the editor in several different ways. Here are a couple that come in handy and will give you a sense how to interpret this kind of code when you see it. The full list of function attributes is listed in the <a class="reference external" href="https://docs.unity3d.com/ScriptReference/AddComponentMenu.html">Unity Documentation: Attributes</a></p>
+<div class="section" id="serializefield">
+<h3>SerializeField<a class="headerlink" href="#serializefield" title="Permalink to this headline">¶</a></h3>
+<p>Expose a variable to be changed in the editor.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">SerializableField</span><span class="p">]</span>
+<span class="nb">float</span> <span class="n">myVariable</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Before this syntax, the easiest way to expose variables in the editor was to make them <code class="docutils literal"><span class="pre">public</span></code>. A lot of us got in a bad habit of doing that, but you should probably make them public <strong>only</strong> if you intend for other scripts to access them. In general, this looks like <code class="docutils literal"><span class="pre">myGameObject.GetComponent&lt;SomeScriptName&gt;().FunctionToRun()</span></code></p>
+</div>
+<div class="section" id="requirecomponent">
+<h3>RequireComponent<a class="headerlink" href="#requirecomponent" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes when you write a script, you want it to control other Components attached to the GameObject. This attribute will tell the compiler to throw an error if the Component isn't there as expected. This keeps you from writing <code class="docutils literal"><span class="pre">if</span> <span class="pre">(ThingIsAttached)</span> <span class="pre">{}</span> <span class="pre">else</span> <span class="pre">{}</span></code> type statements.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">RequireComponent</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">Rigidbody</span><span class="p">))]</span>
+<span class="n">public</span> <span class="k">class</span> <span class="nc">DoSomethingAwesome</span><span class="p">(){</span>
+  <span class="o">//</span> <span class="n">awesome</span> <span class="n">stuff</span> <span class="k">with</span> <span class="n">rigid</span> <span class="n">body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="menuitem">
+<h3>MenuItem<a class="headerlink" href="#menuitem" title="Permalink to this headline">¶</a></h3>
+<p>When you've got an action with multiple steps that you're doing over and over, write a script and stick it in a menu!</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">UnityEditor</span><span class="o">.</span><span class="n">MenuItem</span> <span class="p">(</span><span class="s2">&quot;MenuSection/Dropdown Title&quot;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="trigger-actions-from-keyboard-input">
+<h2>Trigger Actions from Keyboard input<a class="headerlink" href="#trigger-actions-from-keyboard-input" title="Permalink to this headline">¶</a></h2>
+<p>The standard method of setting up user controls is to use the InputManager found via <code class="docutils literal"><span class="pre">Edit</span> <span class="pre">&gt;</span> <span class="pre">Project</span> <span class="pre">Settings</span> <span class="pre">&gt;</span> <span class="pre">Input</span></code>, however if you want to set up some controls just for testing, writing yourself some keyboard shortcuts is a great way to do it.</p>
+<div class="section" id="simple-logging">
+<h3>Simple Logging<a class="headerlink" href="#simple-logging" title="Permalink to this headline">¶</a></h3>
+<p>To trigger actions from the keyboard, create an Empty GameObject and name it <code class="docutils literal"><span class="pre">KeyboardManager</span></code>. Then create a new script called MyKeyboardController and attach it to the KeyboardManager. In the <code class="docutils literal"><span class="pre">Update</span></code> function, add a simple check and a debug statement.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="o">.</span><span class="n">GetKeyDown</span> <span class="p">(</span><span class="n">KeyCode</span><span class="o">.</span><span class="n">A</span><span class="p">))</span> <span class="p">{</span>
+  <span class="n">Debug</span><span class="o">.</span><span class="n">Log</span> <span class="p">(</span><span class="s2">&quot;KeyDown A&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You should see log statements in your Console whenever you press <code class="docutils literal"><span class="pre">a</span></code> on the keyboard</p>
+<ul class="simple">
+<li>try <code class="docutils literal"><span class="pre">Input.GetKeyUp</span></code> and <code class="docutils literal"><span class="pre">Input.GetKey</span></code> - how to their behaviors differ?</li>
+</ul>
+</div>
+<div class="section" id="setting-up-a-scripted-camera-fade">
+<h3>Setting up a Scripted Camera Fade<a class="headerlink" href="#setting-up-a-scripted-camera-fade" title="Permalink to this headline">¶</a></h3>
+<p>Let's try something more useful - how about something that fades to black when you hit spacebar? A nice fade is especially useful for VR applications since hard cuts between views can be jarring to users.</p>
+<p>In the assets folder, look for a prefab (that's the blue cube symbol) and drag it into the scene. Position it so that your camera is in the center of the cube. In your keyboard script, create a GameObject variable with a SerializeField decorator called <code class="docutils literal"><span class="pre">fadeCube</span></code>, then return to the editor.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="ow">in</span> <span class="n">MyKeyboardController</span><span class="o">.</span><span class="n">cs</span>
+<span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span>
+<span class="n">GameObject</span> <span class="n">fadeCube</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>If you don't immediately see a GameObject slot appear in the inspector window with your script, hit Play (Ctrl+P) and it should force the script to reload. When you see it, drag your fadeCube prefab onto it. Now you've got a <em>variable</em> in your script that points to a <em>object</em> in the scene.</p>
+<p>In the Hierarchy view, click on the FadeCube and examine it in the Inspector. You should see a script Component attached to it called <code class="docutils literal"><span class="pre">AlphaFader.cs</span></code>. Double-click on that to load it in a text editor. You should see the familiar <code class="docutils literal"><span class="pre">Start()</span></code> and <code class="docutils literal"><span class="pre">Update()</span></code> functions along with <code class="docutils literal"><span class="pre">OnRenderImage()</span></code> and some <em>public</em> functions. Since they are public, they can be called from other contexts.</p>
+<p>To trigger a fade from <code class="docutils literal"><span class="pre">MyKeyboardController</span></code>, we'll use the reference that we made to <code class="docutils literal"><span class="pre">fadeCube</span></code> and call <code class="docutils literal"><span class="pre">GetComponent</span></code> to look up its script, <code class="docutils literal"><span class="pre">AlphaFader</span></code>.  Once we have a reference to the script, we can call any of its public functions. If your editor has code suggestions, you should see <code class="docutils literal"><span class="pre">StartFadeOut()</span></code> and <code class="docutils literal"><span class="pre">StartFadeIn()</span></code> appear as options when you type <code class="docutils literal"><span class="pre">.</span></code> after the script object.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fadeCube</span><span class="o">.</span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">AlphaFader</span><span class="o">&gt;</span><span class="p">()</span><span class="o">.</span><span class="n">StartFadeOut</span> <span class="p">();</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">&lt;</span></code> and <code class="docutils literal"><span class="pre">&gt;</span></code> surrounding <code class="docutils literal"><span class="pre">AlphaFader</span></code> indicate the <em>type</em> of component we are asking the fadeCube GameComponent for. If you didn't specify the type, Unity wouldn't know what functions it has available.</p>
+<ul class="simple">
+<li>add <code class="docutils literal"><span class="pre">StartFadeOut</span></code>to a key of your choice and test it</li>
+<li>assign a different key to invoke <code class="docutils literal"><span class="pre">StartFadeIn</span></code></li>
+<li>fade in and out to your heart's content</li>
+</ul>
+</div>
+<div class="section" id="arranging-things-in-your-scene">
+<h3>Arranging Things in Your Scene<a class="headerlink" href="#arranging-things-in-your-scene" title="Permalink to this headline">¶</a></h3>
+<p>Before we move on, let's add one more keyboard shortcut. This time, we'll take the sword we painstakingly imported before and make it easy for us to pick it up.</p>
+<ul class="simple">
+<li>make sure you have the sword prefab added to your scene (viewable in the Hierarchy)</li>
+<li>add a <code class="docutils literal"><span class="pre">awesomeSword</span></code> variable to your <code class="docutils literal"><span class="pre">MyKeyboardController</span></code> script and connect the sword instance in the Hierarchy to the script variable in the inspector</li>
+<li>create a keyboard shortcut that will move the sword so that it is right in front of the camera</li>
+</ul>
+<p>If you need a hint, the inside of your function will probably look something like this:<code class="docutils literal"><span class="pre">sword.transform.position</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Vector3</span> <span class="pre">(3.2f,</span> <span class="pre">1.5f,</span> <span class="pre">1.0f);</span></code></p>
+<p>Once you've got the sword magically flying to your 'hands' at will:</p>
+<ul class="simple">
+<li>rewrite your function to move to the right place wherever the camera moves (hint: you can create another GameObject variable that points to the camera and assign its parent as a transform <code class="docutils literal"><span class="pre">sword.transform.parent</span> <span class="pre">=</span> <span class="pre">mainCamera.transform;</span></code> ... but how can we figure out the Camera's position?)</li>
+<li>add another keyboard shortcut to rotate the sword downward over several frames to 'swing' it</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Keelan Downton.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

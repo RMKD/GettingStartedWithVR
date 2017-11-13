@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Session V: Enhancing With Textures, Shaders and Sound &#8212; Getting Started With VR 0.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Advanced Notes" href="AdvancedNotes.html" />
+    <link rel="prev" title="Session IV: Attaching User Controls" href="Controllers.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Getting Started With VR</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Contents <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Prerequisites.html">Before You Arrive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SetupAndBasics.html">Session I: Setting Up and Using Unity 3D for VR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Session II: Controlling Objects With Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CollisionsAndPhysics.html">Session III: Collisions and Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Controllers.html">Session IV: Attaching User Controls</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Session V: Enhancing With Textures, Shaders and Sound</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AdvancedNotes.html">Some Advanced Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Resources.html">Additional Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Attributions.html">Attributions</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Current Section <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Session V: Enhancing With Textures, Shaders and Sound</a><ul>
+<li><a class="reference internal" href="#adding-materials-and-textures-to-objects">Adding Materials and Textures to objects</a></li>
+<li><a class="reference internal" href="#customize-the-floor">Customize the Floor</a><ul>
+<li><a class="reference internal" href="#customize-the-pillar">Customize the Pillar</a></li>
+<li><a class="reference internal" href="#add-a-background">Add a Background</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#shaders">Shaders</a><ul>
+<li><a class="reference internal" href="#making-a-basic-shader">Making a basic Shader</a></li>
+<li><a class="reference internal" href="#using-a-shader-to-show-the-sword-is-powered-up">Using a Shader to Show the Sword is Powered Up</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sounds">Sounds</a></li>
+<li><a class="reference internal" href="#particles-lines-and-trails">Particles, Lines, and Trails</a></li>
+<li><a class="reference internal" href="#one-last-challenge">One Last Challenge</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="Controllers.html" title="Previous Chapter: Session IV: Attaching User Controls"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Session IV: A...</span>
+    </a>
+  </li>
+  <li>
+    <a href="AdvancedNotes.html" title="Next Chapter: Advanced Notes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Advanced Notes &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary">
+  <li>
+    <a href="Controllers.html" title="Previous Chapter: Session IV: Attaching User Controls"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Session IV: A...</span>
+    </a>
+  </li>
+  <li>
+    <a href="AdvancedNotes.html" title="Next Chapter: Advanced Notes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Advanced Notes &raquo;</span>
+    </a>
+  </li>
+<form action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <div class="section" id="session-v-enhancing-with-textures-shaders-and-sound">
+<h1>Session V: Enhancing With Textures, Shaders and Sound<a class="headerlink" href="#session-v-enhancing-with-textures-shaders-and-sound" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>adding materials and textures to objects</li>
+<li>add a background scene</li>
+<li>change textures in a photo editor</li>
+<li>use a shader instead of a static texture</li>
+<li>add sound effects</li>
+</ul>
+<div class="section" id="adding-materials-and-textures-to-objects">
+<h2>Adding Materials and Textures to objects<a class="headerlink" href="#adding-materials-and-textures-to-objects" title="Permalink to this headline">¶</a></h2>
+<p>Materials pretty much determine how your scene will appear. You can think of Materials as a bucket of visual effects that determine how an object should be rendered for the cameras. They use a <em>shader</em> to render <em>maps</em>. By adding or changing the maps, you change how the object appears.</p>
+<ul class="simple">
+<li>in the Project view, create a new Material and name it something like MyFirstMaterial</li>
+<li>click on it to view it in the Inspector</li>
+<li>in the Inspector, observe that its Shader is Standard and its rendering mode is opaque</li>
+<li>click on the color selector in <em>albedo</em> and change it to something more interesting than white</li>
+<li>apply the texture to an object by dragging it from the Project window to the object in the Hierarchy view</li>
+<li>once you get used to it, assign a material to the floor and your sword</li>
+</ul>
+<p>Textures are basically images like <code class="docutils literal"><span class="pre">jpg</span></code> or <code class="docutils literal"><span class="pre">png</span></code> but with special metadata attached to them that tells Unity how to treat them in a scene.</p>
+<ul class="simple">
+<li>copy an image from your computer into the Assets directory</li>
+<li>in the Inspector, examine the various options under Texture type (but leave it as default)</li>
+<li>click on the Material you created in the Project view</li>
+<li>in the Inspector, click on the circle next to the <em>albedo</em> and select your image from the window</li>
+</ul>
+<p>You can think of materials as a way to manage the appearance of one or more objects.</p>
+<ul class="simple">
+<li>try assigning the material to more than one object, then select the Material from the Project view and change its color - observe how all of the objects with that material change color</li>
+</ul>
+<p>You can find more details specifications in the <a class="reference external" href="https://docs.unity3d.com/Manual/Shaders.html">Unity Materials and Textures documentation</a></p>
+</div>
+<div class="section" id="customize-the-floor">
+<h2>Customize the Floor<a class="headerlink" href="#customize-the-floor" title="Permalink to this headline">¶</a></h2>
+<p>Now that you've got the basic idea, we'll add a more realistic texture to the ground. Professionally made textures will include not just a simple image but several image types that handle different types of image processing. The classical way of doing this included a 'normal', 'specular', and 'diffuse' layer. Unity's current method gives you 'albedo', 'metallic', 'normal map', 'height map', and 'occlusion'.</p>
+<p>Create a new material by going to the menu: <code class="docutils literal"><span class="pre">Assets</span> <span class="pre">&gt;</span> <span class="pre">Create</span> <span class="pre">&gt;</span> <span class="pre">Material</span></code> (or right click in the Project window) and name it <code class="docutils literal"><span class="pre">FloorMaterial</span></code>. In the Inspector, you should see that it's using Shader: Standard (we'll cover these more shortly). Now you've got a basic material that we can attach more information to.</p>
+<p>Find <code class="docutils literal"><span class="pre">WoodPlanks028_2k</span></code> (there are even higher quality versions up to 6k) in the pre_assets directory drag it into your <code class="docutils literal"><span class="pre">Assets/Textures</span></code> directory. This contains images in the format they are provided by <a class="reference external" href="https://www.poliigon.com/">Poliigon</a> - with a suffix describing different layers. By dragging from the Project window to the Inspector, you can assign different images to different maps of the material. If you click the circle next to the word, it will pull up a menu you can use to search everything in your assets directory.</p>
+<ul class="simple">
+<li>assign Albedo to the <code class="docutils literal"><span class="pre">COL2</span></code> image</li>
+<li>set the Smoothness to 0.40 and change the source to <code class="docutils literal"><span class="pre">Albedo</span> <span class="pre">Alpha</span></code></li>
+<li>assign Normal to the <code class="docutils literal"><span class="pre">NRM</span></code> image and click the <code class="docutils literal"><span class="pre">Fix</span> <span class="pre">Now</span></code> button to make sure the image gets processed as a 'normal'</li>
+<li>assign Heightmap to the <code class="docutils literal"><span class="pre">DISP</span></code> image (not <code class="docutils literal"><span class="pre">DISP16</span></code>)</li>
+<li>assign Occlusion to the <code class="docutils literal"><span class="pre">AO</span></code> image</li>
+<li>to adjust how big the wooden planks appear, change the Tiles values for X and Y (5 and 5 seems to work well)</li>
+</ul>
+<div class="section" id="customize-the-pillar">
+<h3>Customize the Pillar<a class="headerlink" href="#customize-the-pillar" title="Permalink to this headline">¶</a></h3>
+<p>We can customize the pillar in a similar way, but this artist has provided a more complex texture. Find <code class="docutils literal"><span class="pre">pillar_greekMat.mat</span></code>, move it to your <code class="docutils literal"><span class="pre">Assets/Materials</span></code> directory and examine it in the Inspector. You'll see that it has Albedo, Specular, Normal Map, and a Height Map assigned. If you look at each of those images in the inspector individually, you'll see that they have a series of regions. Those regions correspond to different parts of the mesh and are mapped there during rendering. If you open it up in <a class="reference external" href="https://krita.org">Krita</a> or another image editing program, you could add graffiti or change its texture. For now, drag that material to the pillar to attach it.</p>
+</div>
+<div class="section" id="add-a-background">
+<h3>Add a Background<a class="headerlink" href="#add-a-background" title="Permalink to this headline">¶</a></h3>
+<p>Now let's add some background scenery. A common way to provide distant  scenery is to use a 'skybox'. As StreetView, photosphere apps, and 360/180 cameras become more popular, there are a lot of resources available for backgrounds. We're going to use a static image captured in HDR: <code class="docutils literal"><span class="pre">misty_pines_2k</span></code>.</p>
+<ul class="simple">
+<li>Move the image to your <code class="docutils literal"><span class="pre">./Assets</span></code> directory.</li>
+<li>Select it and in the Inspector set the Texture Shape to Cube and the Mapping to Latitude-Longitude layout (you should see the preview look like its projected onto the inside of a half-sphere)</li>
+<li>Create a new material (Menu: Assets &gt; Create &gt; Material) and give it a name describing the image</li>
+<li>Click on that material and set its shader to Skybox &gt; Cubemap</li>
+<li>Click the Cubemap (HDR) select button and choose your material in the menu (or simply drag and drop the image from your project tab) . You can verify that it projected correctly by dragging the mouse around in the preview - if you need to adjust how it aligns with your scene, use the rotation slider in the Inspector.</li>
+<li>To use as a skybox, open the <code class="docutils literal"><span class="pre">Window</span> <span class="pre">&gt;</span> <span class="pre">Lighting</span> <span class="pre">&gt;</span> <span class="pre">Settings</span></code> menu and under the scene tab, drag your cubemap material onto the skybox material slot. You should see it appear in the background of your Scene View</li>
+</ul>
+<p>If you need to adjust how close or how high the photosphere appears, you can tweak those settings using one of the first two the options described in <a class="reference external" href="https://github.com/omgwtfgames/unity-cardboard-photosphere">this project</a> which provides a great summary of the three main ways to set up backgrounds in Unity. While 'inverted normals' might sound a little complicated as you're getting started, it basically means setting up the sphere to draw the texture on the <em>inside</em> rather than the <em>outside</em>, so if you make it big enough to fit your whole scene, you can drop a standard photosphere (i.e. an equirectangular image) like you might see in Google's StreetView or could take with a smartphone app.</p>
+</div>
+</div>
+<div class="section" id="shaders">
+<h2>Shaders<a class="headerlink" href="#shaders" title="Permalink to this headline">¶</a></h2>
+<p>Shaders are specialized scripts that determine how textures will be applied across a mesh.</p>
+<p>One of the best introductions to shaders is http://www.alanzucconi.com/2015/06/10/a-gentle-introduction-to-shaders-in-unity3d/</p>
+<p>If we go back to our fadeCube, that can help make sense of how shader interact with scripts and give you some basic constructs that will help when you're ready for fancier stuff.</p>
+<div class="section" id="making-a-basic-shader">
+<h3>Making a basic Shader<a class="headerlink" href="#making-a-basic-shader" title="Permalink to this headline">¶</a></h3>
+<p>In the pre_asets directory, go into Shaders and Copy the SwordShadersProgresssion into your assets folder along with <code class="docutils literal"><span class="pre">lava.png</span></code> and <code class="docutils literal"><span class="pre">Displacements.png</span></code> from the textures folder. Each of these shaders adds a little more functionality to the previous one. In order to apply a shader to an object, it first needs a material to work with, so right click in your assets and create a new material. By dragging the shader onto the material, and then dragging the material onto the object, we can see what our shader is doing.</p>
+<p>The first shader, 01SolidColorShader is about as basic as a shader can be. For every pixel where the object is located, it always returns the same color.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Shader</span> <span class="s2">&quot;Custom/SolidColor&quot;</span> <span class="p">{</span>
+	<span class="n">SubShader</span> <span class="p">{</span>
+		<span class="n">Pass</span> <span class="p">{</span>
+			<span class="n">CGPROGRAM</span>
+
+			<span class="c1">#pragma vertex vert             </span>
+			<span class="c1">#pragma fragment frag</span>
+
+			<span class="n">struct</span> <span class="n">vertInput</span> <span class="p">{</span>
+				<span class="n">float4</span> <span class="n">pos</span> <span class="p">:</span> <span class="n">POSITION</span><span class="p">;</span>
+			<span class="p">};</span>  
+
+			<span class="n">struct</span> <span class="n">vertOutput</span> <span class="p">{</span>
+				<span class="n">float4</span> <span class="n">pos</span> <span class="p">:</span> <span class="n">SV_POSITION</span><span class="p">;</span>
+			<span class="p">};</span>
+
+			<span class="n">vertOutput</span> <span class="n">vert</span><span class="p">(</span><span class="n">vertInput</span> <span class="nb">input</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">vertOutput</span> <span class="n">o</span><span class="p">;</span>
+				<span class="n">o</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="n">mul</span><span class="p">(</span><span class="n">UNITY_MATRIX_MVP</span><span class="p">,</span> <span class="nb">input</span><span class="o">.</span><span class="n">pos</span><span class="p">);</span>
+				<span class="k">return</span> <span class="n">o</span><span class="p">;</span>
+			<span class="p">}</span>
+
+			<span class="n">half4</span> <span class="n">frag</span><span class="p">(</span><span class="n">vertOutput</span> <span class="n">output</span><span class="p">)</span> <span class="p">:</span> <span class="n">COLOR</span> <span class="p">{</span>
+				<span class="k">return</span> <span class="n">half4</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+			<span class="p">}</span>
+			<span class="n">ENDCG</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>With the next shader, 02TextureShader, we can apply a texture to the material using what is called UV maps. (The U and V are the names of the axis. They are simply the X and Y coordinates of the texture we are using.). You'll notice at the top of this shader, we have a Properties section.  This allows us to give the shader inputs from unity. <code class="docutils literal"><span class="pre">_MainTex</span> <span class="pre">(&quot;Texture&quot;,</span> <span class="pre">2D)</span> <span class="pre">=</span> <span class="pre">&quot;white&quot;</span> <span class="pre">{}</span></code> means that the variable in our code will be _MainTex, the name shown in the unity inspector is &quot;Texture&quot;, which takes in a 2D image, and if no image is supplied, it will use a white image by default. Note that we have to redeclare _MainTex as a sampler2D before we can use it. We can drag <code class="docutils literal"><span class="pre">lava.png</span></code> into the Texture slot of our material to apply the texture to it. So now, we are mapping the object's 3d point to a UV coordinate which we then use to sample the texture that we give it.</p>
+<p>While we normally think of textures as Images, to the computer, it's simply a grid of rgba values, which are represented as numbers from 0-1. So instead of passing it a picture, we can pass it a grid of values that we won't use as colors. This Displacement picture that we are using has random noise in both the red and green channels. We can use values in these channels to warp our texture. So instead of sampling the texuture with our normal UV values, we add a displacement value that we get from our Displacement picture. Since the values are always between 0 and 1, we multiply it by 2 and subtract 1 so we get values from -1 to 1, so our displacement will move in all directions. When we apply this shader to our material and drag <code class="docutils literal"><span class="pre">Displacements.png</span></code> to the Warp Texture slot, we can move the Magnitude slider to see how the texure changes as we increase the effect of the warp.</p>
+<p>While the warp is cool, it' static once you choose a Magnitude value. The last shader, 04FlowingShader, utilizes the built in <code class="docutils literal"><span class="pre">_Time</span></code> variable to add animation to our shader. So instead of reading from our Displacement texture the same UV value each time, we add <code class="docutils literal"><span class="pre">_Time.x*_Speed</span></code> to it so we get a flowing type effect. _Time has an x, y, and w, but they are all just the time multiplied by a constant. In order they are t/20, t, t*2, t*3. There are other constants like <code class="docutils literal"><span class="pre">_SinTime</span></code> which can give you oscilating values. Information about these and other constants can be viewed here:  https://docs.unity3d.com/Manual/SL-UnityShaderVariables.html</p>
+</div>
+<div class="section" id="using-a-shader-to-show-the-sword-is-powered-up">
+<h3>Using a Shader to Show the Sword is Powered Up<a class="headerlink" href="#using-a-shader-to-show-the-sword-is-powered-up" title="Permalink to this headline">¶</a></h3>
+<p>In the pre_asets directory, in the materials folder you'll find <code class="docutils literal"><span class="pre">PowerUpMaterial.mat</span></code>, and in the textures folder you'll find <code class="docutils literal"><span class="pre">lava.png</span></code> and <code class="docutils literal"><span class="pre">Displacements.png</span></code>, and in the shader's folder named SwordShaderProgression. Bring them into your Assets directory and create another copy of your sword model in the hierarchy and name it <code class="docutils literal"><span class="pre">MagmaSword</span></code>. Check to make sure the PowerUpMaterial is using the <code class="docutils literal"><span class="pre">Custom/04FlowingShader</span></code> and is assigned <code class="docutils literal"><span class="pre">lava</span></code> as the texture and <code class="docutils literal"><span class="pre">Displacement</span></code> as the warp texture. If you've got everything connected you,  should see an animated shader effect in the Scene window. If you click on the PowerUpMaterial, you can also play around with the Magnitude and Speed sliders to see how it affects the texture. It might be easier to see on a plain cube, so you can create a new 3D cube in your scene and drag the material onto it.</p>
+<p>To connect this with our two-handed sword powerup effect:</p>
+<ul class="simple">
+<li>select the MagmaSword object in the Hierarchy and uncheck the box next to it in the Inspector (this will disable the object and make it disappear from view)</li>
+<li>open up the <code class="docutils literal"><span class="pre">BladeController.cs</span></code> script and find your <code class="docutils literal"><span class="pre">EnablePowerUp</span></code> and <code class="docutils literal"><span class="pre">DisablePowerUp</span></code> functions</li>
+<li>at the top of the script, create SerializeField variables for <code class="docutils literal"><span class="pre">simpleModel</span></code> and <code class="docutils literal"><span class="pre">powerModel</span></code> game objects</li>
+<li>select the Sword parent object in the Hierarchy and drag the SimpleSword and MagmaSword children to their slots in the <code class="docutils literal"><span class="pre">BladeController</span></code> compenent in the Inspector</li>
+<li>back in the script, under enable, add the following lines: <code class="docutils literal"><span class="pre">simpleModel.SetActive</span> <span class="pre">(false);</span></code>  <code class="docutils literal"><span class="pre">powerModel.SetActive</span> <span class="pre">(true);</span></code></li>
+<li>under disable, add the following lines: <code class="docutils literal"><span class="pre">simpleModel.SetActive</span> <span class="pre">(false);</span></code>  <code class="docutils literal"><span class="pre">powerModel.SetActive</span> <span class="pre">(true);</span></code></li>
+</ul>
+</div>
+</div>
+<div class="section" id="sounds">
+<h2>Sounds<a class="headerlink" href="#sounds" title="Permalink to this headline">¶</a></h2>
+<p>Though sometimes sounds are a last thought, they can really add to a sense of immersion in a scene. Unity gives you a lot of power for creating effects by playing the audio at a particular place in the scene. It's volume will depend on how far you are from it in the scene.</p>
+<p>Much like images you can load sounds as assets simply by moving supported files such as <code class="docutils literal"><span class="pre">mp3</span></code> or <code class="docutils literal"><span class="pre">wav</span></code> to the Assets directory. Once there, you can attach sounds to objects by adding an <code class="docutils literal"><span class="pre">Audio</span> <span class="pre">Source</span></code> component (or you can reference them directly with a script as an <code class="docutils literal"><span class="pre">AudioClip</span></code> you invoke at a certain time). Sounds that are played using <code class="docutils literal"><span class="pre">PlayClipAtPoint</span></code> will play from a position in the scene and can be a very effective technique for drawing a users attention to a particular place in the scene.</p>
+<p>Open up your BladeController script and add the following variable declaration:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">SerializeField</span><span class="p">]</span>
+<span class="n">AudioClip</span> <span class="n">cutSound</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Then drag the cut sound audio clip to your script in the Inspector.</p>
+<p>In the <code class="docutils literal"><span class="pre">OnCollisionEnter</span></code> function, play the sound.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">AudioSource</span><span class="o">.</span><span class="n">PlayClipAtPoint</span> <span class="p">(</span><span class="n">cutSound</span><span class="p">,</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">position</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>add a sound to differentiate between hitting a <code class="docutils literal"><span class="pre">Sliceable</span></code> and a <code class="docutils literal"><span class="pre">Strong</span></code> object</li>
+<li>add a sound that always plays while the magmaSword is enabled (hint: use an Audio Component, not just a clip)</li>
+<li>add some ambient sound like a bird singing to the scene by creating an empty object and attaching the sound</li>
+<li>can you write a script that will play the bird sound at random intervals from a random place in the scene?</li>
+</ul>
+</div>
+<div class="section" id="particles-lines-and-trails">
+<h2>Particles, Lines, and Trails<a class="headerlink" href="#particles-lines-and-trails" title="Permalink to this headline">¶</a></h2>
+<p>As a bonus, if you're looking for some additional effects to add to your sword, Unity has a powerful engine for adding particles and trailing lines to objects. To add a Trail to your sword swing, right-click the sword parent in the Hierarchy and select <code class="docutils literal"><span class="pre">Effects</span> <span class="pre">&gt;</span> <span class="pre">Trail</span></code> (or Particle, or Line). Then you'll get a child object with the relevant renderer attached. You can change its origin just like everything else in the scene by moving its Transform.</p>
+<p>There's lots of fun options you explore within the effects menus. These often come with a performance cost but used carefully can provide powerful enhancements to your experience.</p>
+</div>
+<div class="section" id="one-last-challenge">
+<h2>One Last Challenge<a class="headerlink" href="#one-last-challenge" title="Permalink to this headline">¶</a></h2>
+<p>If you made it all the way through - congratulations! If you want one more challenge, see if you can write a script that will throw new sliceable objects towards the pillar. This process of generating objects is often referred to as a 'spawner'. You can use spatial audio to signal to the user that an object is about to fly towards them.</p>
+<p>As a hint, you'll probably want some function that chooses which prefab to use and then makes sure that each prefab has a Rigidbody and has been tagged as <code class="docutils literal"><span class="pre">Sliceable</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>GameObject sliceable = (GameObject)Instantiate (ChoosePrefab (), transform.position, Quaternion.identity);
+sliceable.tag = &quot;Sliceable&quot;;
+
+Vector3 heading = target.transform.position - transform.position;
+
+Rigidbody rb = sliceable.GetComponent&lt;Rigidbody&gt; ();
+
+if (!rb) rb = sliceable.AddComponent&lt;Rigidbody&gt; ();
+
+rb.velocity = transform.TransformDirection (heading/heading.magnitude * power);
+rb.useGravity = true;
+rb.drag = 1f;
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Keelan Downton.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
