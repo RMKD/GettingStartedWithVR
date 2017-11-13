@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
+
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed');
+
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
+
+/*http://www.color-hex.com/color-palette/48419 #00534e, #ff9900, #ffdf55, #0088b2, #810000*/
+
+.bs-sidenav {
+  background-color: #0088b2;
+}
+
+.bs-sidenav li {
+  text-align: center;
+  text-indent: 20px;
+  line-height: 40px;
+  list-style: none;
+  margin: 20px;
+  border-radius: 5px;
+  background-color: #ffdf55;
+}
+
+
+.bs-sidenav form, .bs-sidenav #sourcelink{
+  display:none;
+}
+
+
+.navbar-inverse {
+  background-color:  	#ff9900;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a  {
+  color:  	#810000;
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+  background-color:  	#810000;
+}
+
+a {
+  color: #810000
+}
+
+a:hover {
+  color: #810000
+}
+
+h1, .h1 {
+    font-family: 'Luckiest Guy','Poppins',sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+h2, .h2, h3, .h {
+  font-family: 'Raleway','Fjalla One',sans-serif;
+  font-weight: 600;
+}
+
+body {
+  font-family: 'Open Sans','Roboto','Lato',sans-serif;
+}
