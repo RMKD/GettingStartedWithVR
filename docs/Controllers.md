@@ -28,9 +28,9 @@ Controllers provide input in the form of position and rotation, joystick/trackpa
 - In the VRTK_SDKManager script menu scroll to the Setups section and click 'Autopopulate'
 - If you have another camera in the scene, click it in the Hierarchy and uncheck the `Audio Listener` in the Inspector to disable it
 
-If you still experience issues, check that your SDK is enabled in the PlayerSettings `Edit > Project Settings > Player` (you can also check this by opening your project directory `./ProjectSettings/PlayerSettings.asset` in your favorite text editor, provided you have previously set your editor to store everything in 'Force to Text' mode)
+If you still experience issues, check that your SDK is enabled in the PlayerSettings `Edit > Project Settings > Player` and find `Other Settings` - there should be a checkbox next to `Virtual Reality Supported` (you can also check this by opening your project directory `./ProjectSettings/PlayerSettings.asset` in your favorite text editor, provided you have previously set your editor to store everything in 'Force to Text' mode).
 
-You should see several grayed out options and at least one in black: `Simulator (VRKT_SDKSetup)` - this is great because it means you can test things out from a desktop without a Head Mounted Display attached. You'll also find that if you import the SDKs from various vendors, those will become available as options. Whichever is listed highest will get loaded first if it is available - you can drag them around to reorder or use the SDKSetupSwitcher to change on the fly in the editor.
+In the VRTK manager in the Inspector, you should see several grayed out options and at least one in black: `Simulator (VRKT_SDKSetup)` - this is great because it means you can test things out from a desktop without a Head Mounted Display attached. You'll also find that if you import the SDKs from various vendors, those will become available as options. Whichever is listed highest will get loaded first if it is available - you can drag them around to reorder or use the SDKSetupSwitcher to change on the fly in the editor.
 
 
 ### Test the Controls in Simulator Mode

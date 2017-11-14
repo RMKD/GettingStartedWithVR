@@ -57,7 +57,7 @@ If you maximized a Scene tab, select from the upper right corner again to unmaxi
 
 ### Working With Hierarchies
 
-Once you have a few objects in scene, you can see them stacking up in the *Hierarchy* view, but right now the objects are probably all children of the scene itself. You can place objects in a hierarchy by dragging and dropping them in hthat window.
+Once you have a few objects in scene, you can see them stacking up in the *Hierarchy* view, but right now the objects are probably all children of the scene itself. You can place objects in a hierarchy by dragging and dropping them in that window.
 
 Let's go back to our basic objects and arrange them with a little more intention.
 
@@ -65,7 +65,7 @@ Let's go back to our basic objects and arrange them with a little more intention
 - add a Cube above it and rename it 'Gear'
 - add a few spheres and position them at varying distances from the cube.
 - make the cube a child of the cylinder.
-- make the spheres all childern of the cube.
+- make the spheres all children of the cube.
 
 Now you should have a set of five objects arranged in a hierarchy where:
 
