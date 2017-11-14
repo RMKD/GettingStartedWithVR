@@ -217,7 +217,7 @@
 </pre></div>
 </div>
 <p>Now, switch back to the editor and hit play. If you Console tab is visible, you should see one message from <code class="docutils literal"><span class="pre">Start</span></code> and hundreds from <code class="docutils literal"><span class="pre">Update</span></code>. When you are getting a lot of repeat messages, you can collapse them into a single message by toggling <code class="docutils literal"><span class="pre">Collapse</span></code> on the Console tab.</p>
-<p>To get a sense of how <code class="docutils literal"><span class="pre">Update</span></code> can be used, lets introduce a counter variable. Declare a</p>
+<p>To get a sense of how <code class="docutils literal"><span class="pre">Update</span></code> can be used, lets introduce a counter variable. Declare a simple counter variable:</p>
 <p><code class="docutils literal"><span class="pre">float</span> <span class="pre">myVariable</span> <span class="pre">=</span> <span class="pre">0;</span></code></p>
 <p>Modify function to increment <code class="docutils literal"><span class="pre">myVariable</span></code> and the Log statement to display the counter variable (it is possible to use <code class="docutils literal"><span class="pre">+</span></code> to concatenate string values in C# but better form to use <code class="docutils literal"><span class="pre">string.Format</span></code>)</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">Update</span><span class="p">(){</span>
@@ -232,11 +232,11 @@
 <p>The complete list of functions available to Monobehaviours is available in the <a class="reference external" href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.html">documentation</a> but here's a few more you may see:</p>
 <div class="section" id="awake">
 <h3>Awake<a class="headerlink" href="#awake" title="Permalink to this headline">¶</a></h3>
-<p>Awake is for things that should happen when a script is first loaded but do not need to be run every time it is enabled. Try adding an Awake function to your test script with its own Debug statement. In the editor, click the checkbox to disable your</p>
+<p>Awake is for things that should happen when a script is first loaded but do not need to be run every time it is enabled. Try adding an Awake function to your test script with its own Debug statement. In the editor, click run, then in the Inspector window, click the checkbox to disable and re-enable your object. Observe when the different functions execute.</p>
 </div>
 <div class="section" id="onfixedupdate">
 <h3>OnFixedUpdate<a class="headerlink" href="#onfixedupdate" title="Permalink to this headline">¶</a></h3>
-<p>Like <code class="docutils literal"><span class="pre">Update</span></code> but it runs every so many milliseconds rather than every frame. This can be important if you are trying to do realistic physics simulations</p>
+<p>Like <code class="docutils literal"><span class="pre">Update</span></code> but it runs every so many milliseconds rather than every frame. This can be important if you are trying to do realistic physics simulations.</p>
 </div>
 <div class="section" id="oncollisionenter-oncollisionexit">
 <h3>OnCollisionEnter / OnCollisionExit<a class="headerlink" href="#oncollisionenter-oncollisionexit" title="Permalink to this headline">¶</a></h3>

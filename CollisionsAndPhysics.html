@@ -163,7 +163,6 @@
 </ul>
 <div class="section" id="getting-to-know-colliders-and-rigidbodies">
 <h2>Getting To Know Colliders and Rigidbodies<a class="headerlink" href="#getting-to-know-colliders-and-rigidbodies" title="Permalink to this headline">¶</a></h2>
-<p>Understanding when and how objects intersect with each other in a Unity scene is</p>
 <p>To understand how collisions and physics work in Unity we're going to have to get to know some more components: Colliders and Rigidbodies. When you're trying to get something working, it can sometimes be confusing which you're working with so it's helpful to build a good mental model of the differences between them.</p>
 <p><strong>Colliders</strong>: calculate the intersection between the colliders of other objects and importantly are frequently <em>not</em> the same shape as the mesh used for drawing.</p>
 <p><strong>Rigidbodies</strong>: apply force to an object based on inputs from the environment and can be configured to account for gravity or specific constraints.</p>
@@ -171,7 +170,7 @@
 </div>
 <div class="section" id="using-the-oncollisionenter-function">
 <h2>Using the OnCollisionEnter Function<a class="headerlink" href="#using-the-oncollisionenter-function" title="Permalink to this headline">¶</a></h2>
-<p>The most important thing you'll</p>
+<p>The most important thing you'll need for interacting with objects is Collision detection. Unity provides standard functions for doing this within Monobehaviour (that most scripts extend).</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">OnCollisionEnter</span><span class="p">(</span><span class="n">Collision</span> <span class="n">col</span><span class="p">){</span>
   <span class="n">Debug</span><span class="o">.</span><span class="n">Log</span> <span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">Format</span><span class="p">(</span><span class="s2">&quot;OnCollisionEnter: </span><span class="si">{0}</span><span class="s2"> hits </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">col</span><span class="o">.</span><span class="n">gameObject</span><span class="o">.</span><span class="n">name</span><span class="p">));</span>
 <span class="p">}</span>
