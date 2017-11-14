@@ -49,7 +49,7 @@ void Update(){
 
 Now, switch back to the editor and hit play. If you Console tab is visible, you should see one message from `Start` and hundreds from `Update`. When you are getting a lot of repeat messages, you can collapse them into a single message by toggling `Collapse` on the Console tab.
 
-To get a sense of how `Update` can be used, lets introduce a counter variable. Declare a
+To get a sense of how `Update` can be used, lets introduce a counter variable. Declare a simple counter variable:
 
 `float myVariable = 0;`
 
@@ -70,12 +70,12 @@ void Update(){
 The complete list of functions available to Monobehaviours is available in the [documentation](https://docs.unity3d.com/ScriptReference/MonoBehaviour.html) but here's a few more you may see:
 
 #### Awake
-Awake is for things that should happen when a script is first loaded but do not need to be run every time it is enabled. Try adding an Awake function to your test script with its own Debug statement. In the editor, click the checkbox to disable your
+Awake is for things that should happen when a script is first loaded but do not need to be run every time it is enabled. Try adding an Awake function to your test script with its own Debug statement. In the editor, click run, then in the Inspector window, click the checkbox to disable and re-enable your object. Observe when the different functions execute.
 
 
 #### OnFixedUpdate
 
-Like `Update` but it runs every so many milliseconds rather than every frame. This can be important if you are trying to do realistic physics simulations
+Like `Update` but it runs every so many milliseconds rather than every frame. This can be important if you are trying to do realistic physics simulations.
 
 
 #### OnCollisionEnter / OnCollisionExit

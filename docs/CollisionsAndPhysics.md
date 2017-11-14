@@ -6,8 +6,6 @@
 
 ### Getting To Know Colliders and Rigidbodies
 
-Understanding when and how objects intersect with each other in a Unity scene is
-
 To understand how collisions and physics work in Unity we're going to have to get to know some more components: Colliders and Rigidbodies. When you're trying to get something working, it can sometimes be confusing which you're working with so it's helpful to build a good mental model of the differences between them.
 
 **Colliders**: calculate the intersection between the colliders of other objects and importantly are frequently *not* the same shape as the mesh used for drawing.
@@ -21,7 +19,7 @@ Most of the objects you've worked with so far come with a collider attached. It'
 
 ### Using the OnCollisionEnter Function
 
-The most important thing you'll
+The most important thing you'll need for interacting with objects is Collision detection. Unity provides standard functions for doing this within Monobehaviour (that most scripts extend).
 
 
 ```
